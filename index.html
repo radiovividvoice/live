@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <meta name="keywords" content="Radio Vivid Voice, Online Radio, World Music, 24/7 Music, Non-Profit Radio, Bengali Talk Shows">
+    <meta property="og:title" content="Radio Vivid Voice - The True Voice of the Heart">
+    <meta property="og:description" content="Enjoy 24/7 world-class music and engaging talk shows with Radio Vivid Voice.">
+    <meta property="og:image" content="https://i.imgur.com/dBeUl5M.png">
+    <meta property="og:url" content="https://vividvoice.vercel.app/">
+    <meta name="twitter:card" content="summary_large_image">
 
-<meta property="og:title" content="Radio Vivid Voice - The True Voice of the Heart">
-<meta property="og:description" content="Enjoy 24/7 world-class music and engaging talk shows with Radio Vivid Voice.">
-<meta property="og:image" content="https://i.imgur.com/dBeUl5M.png">
-<meta property="og:url" content="https://vividvoice.vercel.app/">
-<meta name="twitter:card" content="summary_large_image">
+    <title>Radio Vivid Voice - The True Voice of the Heart</title>
 
-  <title>Radio Vivid Voice - The True Voice of the Heart</title>
-
-<!-- Structured Data -->
-  <script type="application/ld+json">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "RadioStation",
@@ -28,318 +26,336 @@
         "https://instagram.com/radio_vivid_voice"
       ]
     }
-  </script>
-    
-    
+    </script>
+
     <link rel="icon" href="https://i.imgur.com/2VUar8c.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/tiro-bangla" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!--<link href="style.css" rel="stylesheet">-->
-    
+
     <style>
-      
-      :root {
-    --primary-color: #6a0dad; /* A deep, vibrant purple */
-    --secondary-color: #00f2ff; /* Electric blue for highlights */
-    --background-dark: #10001c;
-    --background-light: #1c0b2b;
-    --text-color: #e0e0e0;
-    --font-family: 'Poppins', sans-serif;
-}
+        :root {
+            --primary-color: #6a0dad;
+            --secondary-color: #00f2ff;
+            --background-dark: #10001c;
+            --background-light: #1c0b2b;
+            --text-color: #e0e0e0;
+            --font-family: 'Poppins', sans-serif;
+        }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-    font-family: var(--font-family);
-    background: linear-gradient(135deg, var(--background-dark), var(--background-light));
-    color: var(--text-color);
-    overflow-x: hidden;
-}
+        body {
+            font-family: var(--font-family);
+            background: linear-gradient(135deg, var(--background-dark), var(--background-light));
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-.main-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-}
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 30px;
+        }
 
-/* Navbar */
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 1200px;
-    z-index: 1000;
-}
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
 
-.navbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 1.5em;
-    font-weight: 600;
-    color: var(--secondary-color);
-}
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
 
-.navbar-brand img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
+        .navbar-brand img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
 
-.nav-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 400;
-    transition: color 0.3s ease;
-}
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
 
-.nav-links a:hover {
-    color: var(--secondary-color);
-}
+        .nav-links a:hover { color: var(--secondary-color); }
 
-/* Radio Player */
-#radio-player {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 25px;
-    padding: 40px;
-    margin-top: 165px;
-    width: 100%;
-    max-width: 450px;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-}
+        /* Social Icons Bar */
+        .social-icons-bar {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            margin-top: 170px;
+            z-index: 999;
+        }
 
-#visualizer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 25px;
-    z-index: -1;
-    opacity: 0.6;
-}
+        .social-icons-bar a,
+        .social-icons-bar button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.3em;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
 
-#station-logo {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 5px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(0,0,0,0.6);
-}
+        .social-icons-bar a::before,
+        .social-icons-bar button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
 
-#station-name {
-    font-size: 2em;
-    font-weight: 700;
-    color: #fff;
-}
+        .social-icons-bar a:hover::before,
+        .social-icons-bar button:hover::before {
+            opacity: 1;
+        }
 
-#station-slogan {
-    font-size: 1.1em;
-    font-weight: 300;
-    font-family: 'Tiro Bangla', sans-serif;
-    opacity: 0.8;
-    margin-bottom: 30px;
-}
+        .social-icons-bar a:hover,
+        .social-icons-bar button:hover {
+            background: var(--secondary-color);
+            color: #000;
+            transform: translateY(-10px) scale(1.12);
+            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.5);
+        }
 
-#controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
+        .social-icons-bar i {
+            pointer-events: none;
+            transform: translateY(1px);
+        }
 
-.control-btn {
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    font-size: 1.5em;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
-}
+        /* Radio Player */
+        #radio-player {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            margin-top: 10px;
+        }
 
-.control-btn:hover {
-    background: #8a2be2; /* Lighter purple */
-    transform: scale(1.1);
-}
+        #visualizer {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.6;
+        }
 
-.volume-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    max-width: 300px;
-}
+        #station-logo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+        }
 
-#volume-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 8px;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    outline: none;
-}
+        #station-name { font-size: 2em; font-weight: 700; color: #fff; }
+        #station-slogan {
+            font-size: 1.1em;
+            font-weight: 300;
+            font-family: 'Tiro Bangla', sans-serif;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
 
-#volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: var(--secondary-color);
-    cursor: pointer;
-    border-radius: 50%;
-}
+        #controls { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 
-/* Footer */
-footer {
-    width: 100%;
-    text-align: center;
-    padding: 20px;
-    opacity: 0.7;
-}
+        .control-btn {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
 
-/* Modals */
-#modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    z-index: 1001;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
+        .control-btn:hover {
+            background: #8a2be2;
+            transform: scale(1.1);
+        }
 
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
-    background: var(--background-light);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    z-index: 1002;
-    width: 90%;
-    max-width: 600px;
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
 
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+        #volume-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            outline: none;
+        }
 
-.modal-header h2 {
-    color: var(--secondary-color);
-}
+        #volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
-.close-modal-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 2em;
-    cursor: pointer;
-}
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            opacity: 0.7;
+            margin-top: auto;
+        }
 
-.modal-body {
-    padding: 30px;
-}
+        /* Modals */
+        #modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1001;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-/* Form elements */
-input[type="text"], textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    font-family: var(--font-family);
-}
+        .modal {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            background: var(--background-light);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 1002;
+            width: 90%;
+            max-width: 600px;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
 
-.btn-submit {
-    background: var(--primary-color);
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-.btn-submit:hover {
-    background: #8a2be2;
-}
+        .modal-header h2 { color: var(--secondary-color); }
 
-.programme-card {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+        .close-modal-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2em;
+            cursor: pointer;
+        }
 
-.social-links {
-    margin-top: 20px;
-}
+        .modal-body { padding: 30px; }
 
-.social-links a {
-    color: #fff;
-    font-size: 1.5em;
-    margin-right: 20px;
-    transition: color 0.3s ease;
-}
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            font-family: var(--font-family);
+        }
 
-.social-links a:hover {
-    color: var(--secondary-color);
-}
-      
+        .btn-submit {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover { background: #8a2be2; }
+
+        .programme-card {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5em;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover { color: var(--secondary-color); }
     </style>
-    
-    
 </head>
 <body>
     <div class="main-container">
+        <!-- Navbar -->
         <nav class="navbar">
             <div class="navbar-brand">
                 <img src="https://i.imgur.com/dBeUl5M.png" alt="Radio Vivid Voice Logo">
@@ -347,18 +363,32 @@ input[type="text"], textarea {
             </div>
             <div class="nav-links">
                 <a href="#" data-modal="about">About</a>
-                <a href="#" data-modal="request">Request</a>
+                <a href="#" data-modal="request">Song Request</a>
                 <a href="#" data-modal="programmes">Programmes</a>
                 <a href="#" data-modal="contact">Contact</a>
             </div>
         </nav>
 
+        <!-- Social Icons Bar - আগের মতোই সুন্দর, কোনো ডট/লাইন নাই -->
+        <div class="social-icons-bar">
+            <a href="https://facebook.com/radiovividvoice" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <button data-modal="request" aria-label="Request Song">
+                <i class="fas fa-envelope"></i>
+            </button>
+            <a href="https://instagram.com/radio_vivid_voice" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+
+        <!-- Radio Player -->
         <div id="radio-player">
             <canvas id="visualizer"></canvas>
             <div class="station-info">
                 <img id="station-logo" src="https://i.imgur.com/dBeUl5M.png" alt="Station Logo">
                 <h1 id="station-name">Radio Vivid Voice</h1>
-                <p id="station-slogan">❝ জোরসে আওয়াজ তোলো ❞</p>
+                <p id="station-slogan">“জোরসে আওয়াজ তোলো”</p>
             </div>
             <audio id="audio-stream" src="https://stream.zeno.fm/xuin6ocdc2juv" crossorigin="anonymous"></audio>
             <div id="controls">
@@ -381,21 +411,27 @@ input[type="text"], textarea {
     <!-- Modals -->
     <div id="modal-overlay"></div>
 
+    <!-- About Modal -->
     <div id="about-modal" class="modal">
         <div class="modal-header">
             <h2>About Radio Vivid Voice</h2>
-            <button class="close-modal-btn">&times;</button>
+            <button class="close-modal-btn">×</button>
         </div>
         <div class="modal-body">
-            <p>Radio Vivid Voice is your 24/7 independent radio station dedicated to amplifying youth voices, playing the best hits, and creating a platform for expression. We believe in being loud, bold, and heard!</p></br>
-            <p class="disclaimer"><b>Disclaimer:</b> Dear Listeners, Radio Vivid Voice is a passion project and will always remain non-profit and commercial-free. The adverts you occasionally hear are part of the broadcasting platform's support structure.</p>
+            <div class="programme-card">
+                <p>Radio Vivid Voice is your 24/7 independent radio station dedicated to amplifying youth voices, playing the best hits, and creating a platform for expression. We believe in being loud, bold, and heard!</p>
+            </div>
+            <div class="programme-card">
+                <p class="disclaimer"><b>Disclaimer:</b> Dear Listeners, Radio Vivid Voice is a passion project and will always remain non-profit and commercial-free. The adverts you occasionally hear are part of the broadcasting platform's support structure.</p>
+            </div>
         </div>
     </div>
 
+    <!-- Request Modal -->
     <div id="request-modal" class="modal">
         <div class="modal-header">
             <h2>Request a Song</h2>
-            <button class="close-modal-btn">&times;</button>
+            <button class="close-modal-btn">×</button>
         </div>
         <div class="modal-body">
             <form id="request-form">
@@ -409,10 +445,11 @@ input[type="text"], textarea {
         </div>
     </div>
 
+    <!-- Programmes Modal -->
     <div id="programmes-modal" class="modal">
         <div class="modal-header">
             <h2>Our Programmes</h2>
-            <button class="close-modal-btn">&times;</button>
+            <button class="close-modal-btn">×</button>
         </div>
         <div class="modal-body">
             <div class="programme-card">
@@ -426,10 +463,11 @@ input[type="text"], textarea {
         </div>
     </div>
 
+    <!-- Contact Modal -->
     <div id="contact-modal" class="modal">
         <div class="modal-header">
             <h2>Contact Us</h2>
-            <button class="close-modal-btn">&times;</button>
+            <button class="close-modal-btn">×</button>
         </div>
         <div class="modal-body">
             <p>For any inquiries, please reach out to us at:</p>
@@ -442,144 +480,109 @@ input[type="text"], textarea {
     </div>
 
     <script>
-    
-      document.addEventListener('DOMContentLoaded', () => {
-    const audioStream = document.getElementById('audio-stream');
-    const playPauseBtn = document.getElementById('play-pause-btn');
-    const volumeSlider = document.getElementById('volume-slider');
-    const canvas = document.getElementById('visualizer');
-    const canvasCtx = canvas.getContext('2d');
+        document.addEventListener('DOMContentLoaded', () => {
+            const audioStream = document.getElementById('audio-stream');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const volumeSlider = document.getElementById('volume-slider');
+            const canvas = document.getElementById('visualizer');
+            const canvasCtx = canvas.getContext('2d');
 
-    let audioContext;
-    let analyser;
-    let source;
-    let isPlaying = false;
+            let audioContext, analyser, source, isPlaying = false;
 
-    // Visualizer setup
-    function setupVisualizer() {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        analyser = audioContext.createAnalyser();
-        source = audioContext.createMediaElementSource(audioStream);
-        source.connect(analyser);
-        analyser.connect(audioContext.destination);
-        analyser.fftSize = 256;
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
+            function setupVisualizer() {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                source = audioContext.createMediaElementSource(audioStream);
+                source.connect(analyser);
+                analyser.connect(audioContext.destination);
+                analyser.fftSize = 256;
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
 
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
 
-        function draw() {
-            requestAnimationFrame(draw);
-            analyser.getByteFrequencyData(dataArray);
-            canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+                function draw() {
+                    requestAnimationFrame(draw);
+                    analyser.getByteFrequencyData(dataArray);
+                    canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
 
-            const barWidth = (canvas.width / bufferLength) * 2.5;
-            let barHeight;
-            let x = 0;
-
-            for (let i = 0; i < bufferLength; i++) {
-                barHeight = dataArray[i] * 1.5;
-                
-                const gradient = canvasCtx.createLinearGradient(0, canvas.height, 0, canvas.height - barHeight);
-                gradient.addColorStop(0, 'rgba(106, 13, 173, 0.5)');
-                gradient.addColorStop(1, 'rgba(0, 242, 255, 0.5)');
-
-                canvasCtx.fillStyle = gradient;
-                canvasCtx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight);
-
-                x += barWidth + 1;
+                    const barWidth = (canvas.width / bufferLength) * 2.5;
+                    let x = 0;
+                    for (let i = 0; i < bufferLength; i++) {
+                        const barHeight = dataArray[i] * 1.5;
+                        const gradient = canvasCtx.createLinearGradient(0, canvas.height, 0, canvas.height - barHeight);
+                        gradient.addColorStop(0, 'rgba(106, 13, 173, 0.5)');
+                        gradient.addColorStop(1, 'rgba(0, 242, 255, 0.5)');
+                        canvasCtx.fillStyle = gradient;
+                        canvasCtx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight);
+                        x += barWidth + 1;
+                    }
+                }
+                draw();
             }
-        }
-        draw();
-    }
 
-    // Player controls
-    playPauseBtn.addEventListener('click', () => {
-        if (!audioContext) {
-            setupVisualizer();
-        }
-        if (isPlaying) {
-            audioStream.pause();
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-        } else {
-            audioStream.play();
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-        }
-        isPlaying = !isPlaying;
-    });
+            playPauseBtn.addEventListener('click', () => {
+                if (!audioContext) setupVisualizer();
+                if (isPlaying) {
+                    audioStream.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                } else {
+                    audioStream.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+                isPlaying = !isPlaying;
+            });
 
-    volumeSlider.addEventListener('input', (e) => {
-        audioStream.volume = e.target.value;
-    });
+            volumeSlider.addEventListener('input', e => audioStream.volume = e.target.value);
 
-    // Modal handling
-    const modalTriggers = document.querySelectorAll('[data-modal]');
-    const closeModalBtns = document.querySelectorAll('.close-modal-btn');
-    const modalOverlay = document.getElementById('modal-overlay');
+            // Modal System
+            const modalTriggers = document.querySelectorAll('[data-modal]');
+            const closeBtns = document.querySelectorAll('.close-modal-btn');
+            const overlay = document.getElementById('modal-overlay');
 
-    modalTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            const modalId = trigger.dataset.modal + '-modal';
-            const modal = document.getElementById(modalId);
-            openModal(modal);
+            modalTriggers.forEach(t => t.addEventListener('click', e => {
+                e.preventDefault();
+                const modal = document.getElementById(t.dataset.modal + '-modal');
+                openModal(modal);
+            }));
+
+            closeBtns.forEach(b => b.addEventListener('click', () => closeModal(b.closest('.modal'))));
+            overlay.addEventListener('click', () => {
+                const open = document.querySelector('.modal[style*="block"]');
+                if (open) closeModal(open);
+            });
+
+            function openModal(m) {
+                overlay.style.display = 'block';
+                m.style.display = 'block';
+                setTimeout(() => {
+                    overlay.style.opacity = '1';
+                    m.style.opacity = '1';
+                    m.style.transform = 'translate(-50%, -50%) scale(1)';
+                }, 10);
+            }
+
+            function closeModal(m) {
+                overlay.style.opacity = '0';
+                m.style.opacity = '0';
+                m.style.transform = 'translate(-50%, -50%) scale(0.95)';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    m.style.display = 'none';
+                }, 300);
+            }
+
+            // Request Form
+            document.getElementById('request-form').addEventListener('submit', e => {
+                e.preventDefault();
+                const f = new FormData(e.target);
+                const body = `Name: ${f.get('name')}\nLocation: ${f.get('location')}\nSong: ${f.get('songName')}\nArtist: ${f.get('artistName')}\nMessage: ${f.get('message')}`;
+                window.location.href = `mailto:radiovividvoice@gmail.com?subject=Song Request&body=${encodeURIComponent(body)}`;
+                closeModal(document.getElementById('request-modal'));
+                e.target.reset();
+            });
         });
-    });
-
-    closeModalBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const modal = btn.closest('.modal');
-            closeModal(modal);
-        });
-    });
-
-    modalOverlay.addEventListener('click', () => {
-        const openModal = document.querySelector('.modal[style*="display: block"]');
-        if (openModal) {
-            closeModal(openModal);
-        }
-    });
-
-    function openModal(modal) {
-        modalOverlay.style.display = 'block';
-        modal.style.display = 'block';
-        setTimeout(() => {
-            modalOverlay.style.opacity = '1';
-            modal.style.opacity = '1';
-            modal.style.transform = 'translate(-50%, -50%) scale(1)';
-        }, 10);
-    }
-
-    function closeModal(modal) {
-        modalOverlay.style.opacity = '0';
-        modal.style.opacity = '0';
-        modal.style.transform = 'translate(-50%, -50%) scale(0.95)';
-        setTimeout(() => {
-            modalOverlay.style.display = 'none';
-            modal.style.display = 'none';
-        }, 300);
-    }
-
-    // Song request form
-    const requestForm = document.getElementById('request-form');
-    requestForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(requestForm);
-        const name = formData.get('name');
-        const location = formData.get('location');
-        const songName = formData.get('songName');
-        const artistName = formData.get('artistName');
-        const message = formData.get('message');
-
-        const mailBody = `Name: ${name}\nLocation: ${location}\nSong: ${songName}\nArtist: ${artistName}\nMessage: ${message}`;
-        window.location.href = `mailto:radiovividvoice@gmail.com?subject=Song Request&body=${encodeURIComponent(mailBody)}`;
-        
-        closeModal(document.getElementById('request-modal'));
-        requestForm.reset();
-    });
-});
-    
     </script>
 </body>
 </html>
