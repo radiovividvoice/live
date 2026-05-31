@@ -1,49 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+    <meta name="google-site-verification" content="2YVtNRmliSpLft_54LS9WwQySMeNmOyq1q5qRq8H7O0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
+
     <meta name="description" content="Radio Vivid Voice - 24/7 independent radio station amplifying youth voices with the best hits. Non-profit and commercial-free!">
     <meta name="keywords" content="independent radio, youth radio, 24/7 music, online radio, Radio Vivid Voice, non-profit radio, music hits, bengali radio">
     <meta name="author" content="Radio Vivid Voice Team">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://vividvoice.vercel.app/">
-
-    <!-- Open Graph -->
+    <link rel="canonical" href="https://rvvlive.vercel.app/">
     <meta property="og:title" content="Radio Vivid Voice - The True Voice of the Heart">
-    <meta property="og:description" content="Listen to Radio Vivid Voice for 24/7 music hits and youth expression. A non-profit platform to be loud, bold, and heard!">
-    <meta property="og:url" content="https://vividvoice.vercel.app/">
+    <meta property="og:description" content="Listen to Radio Vivid Voice for 24/7 music hits and youth expression.">
+    <meta property="og:url" content="https://rvvlive.vercel.app/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.imgur.com/dBeUl5M.png">
     <meta property="og:site_name" content="Radio Vivid Voice">
-
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Radio Vivid Voice - The True Voice of the Heart">
-    <meta name="twitter:description" content="Tune into Radio Vivid Voice for non-stop music and youth voices. Commercial-free and passionate!">
+    <meta name="twitter:description" content="Tune into Radio Vivid Voice for non-stop music and youth voices.">
     <meta name="twitter:image" content="https://i.imgur.com/dBeUl5M.png">
 
-    <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RadioStation",
-      "name": "Radio Vivid Voice",
-      "url": "https://vividvoice.vercel.app/",
-      "description": "Non-stop World Music 24/7.",
-      "logo": "https://i.imgur.com/dBeUl5M.png",
-      "sameAs": [
-        "https://facebook.com/RadioVividVoice",
-        "https://instagram.com/radio_vivid_voice"
-      ]
-    }
+    {"@context":"https://schema.org","@type":"RadioStation","name":"Radio Vivid Voice","url":"https://rvvlive.vercel.app/","description":"Non-stop World Music 24/7.","logo":"https://i.imgur.com/dBeUl5M.png","sameAs":["https://facebook.com/RadioVividVoice","https://instagram.com/radio_vivid_voice"]}
     </script>
 
     <title>Radio Vivid Voice - The True Voice of the Heart</title>
-    
     <link rel="icon" href="https://i.imgur.com/2VUar8c.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,22 +35,65 @@
 
     <style>
         :root {
-            --primary-color: #6a0dad;
-            --secondary-color: #00f2ff;
-            --background-dark: #10001c;
-            --background-light: #1c0b2b;
-            --text-color: #e0e0e0;
-            --font-family: 'Poppins', sans-serif;
+            --primary:   #6a0dad;
+            --cyan:      #00f2ff;
+            --bg-dark:   #10001c;
+            --bg-light:  #1c0b2b;
+            --text:      #e0e0e0;
+            --font:      'Poppins', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: var(--font-family);
-            background: linear-gradient(135deg, var(--background-dark), var(--background-light));
-            color: var(--text-color);
+            font-family: var(--font);
+            background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
+            color: var(--text);
             overflow-x: hidden;
             min-height: 100vh;
+        }
+
+        /* ── Animated background orbs ── */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.13;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 {
+            width: 450px; height: 450px;
+            background: radial-gradient(circle, #6a0dad, transparent);
+            top: -120px; left: -100px;
+            animation: orbDrift1 28s ease-in-out infinite;
+        }
+        .orb-2 {
+            width: 320px; height: 320px;
+            background: radial-gradient(circle, #00f2ff, transparent);
+            bottom: 80px; right: -60px;
+            animation: orbDrift2 22s ease-in-out infinite;
+        }
+        .orb-3 {
+            width: 220px; height: 220px;
+            background: radial-gradient(circle, #6a0dad, transparent);
+            top: 50%; left: 55%;
+            animation: orbDrift3 35s ease-in-out infinite;
+        }
+
+        @keyframes orbDrift1 {
+            0%,100% { transform: translate(0,0) scale(1); }
+            33%      { transform: translate(40px,-30px) scale(1.08); }
+            66%      { transform: translate(-25px,40px) scale(0.94); }
+        }
+        @keyframes orbDrift2 {
+            0%,100% { transform: translate(0,0) scale(1); }
+            40%      { transform: translate(-35px,-25px) scale(1.06); }
+            70%      { transform: translate(20px,35px) scale(0.93); }
+        }
+        @keyframes orbDrift3 {
+            0%,100% { transform: translate(0,0) scale(1); }
+            50%      { transform: translate(-40px,20px) scale(1.1); }
         }
 
         .main-container {
@@ -77,9 +102,11 @@
             align-items: center;
             padding: 20px;
             gap: 30px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Navbar */
+        /* ── Navbar ── */
         .navbar {
             width: 100%;
             max-width: 1200px;
@@ -87,10 +114,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 30px;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.08);
             position: fixed;
             top: 20px;
             left: 50%;
@@ -101,149 +129,328 @@
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             font-size: 1.5em;
             font-weight: 600;
-            color: var(--secondary-color);
+            background: linear-gradient(120deg, #fff 30%, var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .navbar-brand img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
+        .navbar-brand img { width: 40px; height: 40px; border-radius: 50%; }
 
         .nav-links a {
-            color: var(--text-color);
+            color: rgba(255,255,255,0.75);
             text-decoration: none;
             margin-left: 25px;
             font-weight: 400;
+            font-size: 0.95em;
+            letter-spacing: 0.3px;
             transition: color 0.3s ease;
         }
+        .nav-links a:hover { color: var(--cyan); }
 
-        .nav-links a:hover { color: var(--secondary-color); }
-
-        /* Social Icons Bar */
+        /* ── Social Icons ── */
         .social-icons-bar {
             display: flex;
             justify-content: center;
             gap: 45px;
             margin-top: 170px;
-            z-index: 999;
+            z-index: 2;
         }
 
         .social-icons-bar a,
         .social-icons-bar button {
-            width: 70px;
-            height: 70px;
+            width: 70px; height: 70px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.15);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2.3em;
             color: #fff;
             text-decoration: none;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(.23,1,.32,1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
-
         .social-icons-bar a::before,
         .social-icons-bar button::before {
             content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.12));
             opacity: 0;
             transition: opacity 0.4s ease;
         }
-
         .social-icons-bar a:hover::before,
-        .social-icons-bar button:hover::before {
-            opacity: 1;
-        }
-
+        .social-icons-bar button:hover::before { opacity: 1; }
         .social-icons-bar a:hover,
         .social-icons-bar button:hover {
-            background: var(--secondary-color);
+            background: var(--cyan);
             color: #000;
             transform: translateY(-10px) scale(1.12);
-            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0,242,255,0.45);
         }
+        .social-icons-bar i { pointer-events: none; transform: translateY(1px); }
 
-        .social-icons-bar i {
-            pointer-events: none;
-            transform: translateY(1px);
-        }
-
-        /* Radio Player */
+        /* ── Radio Player Card ── */
         #radio-player {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 25px;
-            padding: 40px;
+            background: rgba(5,0,12,0.55);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 28px;
+            padding: 40px 36px;
             width: 100%;
-            max-width: 450px;
+            max-width: 460px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.07);
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.6),
+                0 0 0 1px rgba(106,13,173,0.15),
+                inset 0 1px 0 rgba(255,255,255,0.06);
             position: relative;
             margin-top: 10px;
         }
 
         #visualizer {
-            position: absolute;
-            top: 0; left: 0;
+            position: absolute; top: 0; left: 0;
             width: 100%; height: 100%;
-            border-radius: 25px;
+            border-radius: 28px;
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.5;
+        }
+
+        /* ── Logo wrapper for glow ring ── */
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 18px;
+        }
+
+        .logo-ring {
+            position: absolute; inset: -6px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: conic-gradient(from 0deg, transparent 0%, var(--cyan) 25%, transparent 50%, var(--primary) 75%, transparent 100%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            animation: ringRotate 4s linear infinite;
+        }
+
+        .logo-ring.visible { opacity: 1; }
+
+        @keyframes ringRotate {
+            to { transform: rotate(360deg); }
         }
 
         #station-logo {
-            width: 180px;
-            height: 180px;
+            width: 175px; height: 175px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+            border: 3px solid rgba(255,255,255,0.08);
+            transition: box-shadow 0.6s ease;
         }
 
-        #station-name { font-size: 2em; font-weight: 700; color: #fff; }
+        #station-logo.playing {
+            box-shadow:
+                0 0 25px rgba(106,13,173,0.6),
+                0 0 55px rgba(106,13,173,0.25),
+                0 0 0 0 rgba(0,242,255,0);
+            animation: logoPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%,100% { box-shadow: 0 0 25px rgba(106,13,173,0.5), 0 0 0 0 rgba(0,242,255,0.35); }
+            50%      { box-shadow: 0 0 45px rgba(106,13,173,0.75), 0 0 0 14px rgba(0,242,255,0); }
+        }
+
+        /* ── Station Name & Slogan ── */
+        #station-name {
+            font-size: 1.9em;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            background: linear-gradient(120deg, #ffffff 40%, var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
         #station-slogan {
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 300;
             font-family: 'Tiro Bangla', sans-serif;
-            opacity: 0.8;
-            margin-bottom: 30px;
+            color: rgba(255,255,255,0.6);
+            text-shadow: 0 0 20px rgba(0,242,255,0.25);
+            margin-bottom: 22px;
         }
 
-        #controls { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        /* ── Now Playing Card ── */
+        #now-playing-card {
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            border-radius: 14px;
+            padding: 13px 16px 14px;
+            margin-bottom: 24px;
+            position: relative;
+            text-align: left;
+            transition: opacity 0.4s ease;
+            animation: cardGlow 4s ease-in-out infinite;
+            border: 1px solid rgba(0,242,255,0.15);
+        }
+
+        @keyframes cardGlow {
+            0%,100% {
+                border-color: rgba(0,242,255,0.12);
+                box-shadow: 0 0 12px rgba(0,242,255,0.04);
+            }
+            50% {
+                border-color: rgba(0,242,255,0.3);
+                box-shadow: 0 0 22px rgba(0,242,255,0.10), inset 0 0 12px rgba(0,242,255,0.03);
+            }
+        }
+
+        .np-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        /* পালসিং লাল ডট — LIVE ইন্ডিকেটর */
+        .np-live-dot {
+            width: 7px;
+            height: 7px;
+            background: #ff3c3c;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: livePulse 1.6s ease-in-out infinite;
+        }
+
+        @keyframes livePulse {
+            0%, 100% { opacity: 1;   transform: scale(1);   box-shadow: 0 0 0 0 rgba(255,60,60,0.6); }
+            50%      { opacity: 0.5; transform: scale(0.85); box-shadow: 0 0 0 4px rgba(255,60,60,0); }
+        }
+
+        .np-label-text {
+            font-size: 0.6em;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            color: var(--cyan);
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Scroll wrapper with right fade mask */
+        .np-scroll-wrapper {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .np-scroll-wrapper::after {
+            content: '';
+            position: absolute;
+            right: 0; top: 0;
+            width: 28px; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(4,0,10,0.9));
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .np-title {
+            font-size: 0.93em;
+            font-weight: 600;
+            color: #ffffff;
+            white-space: nowrap;
+            display: inline-block;
+            letter-spacing: 0.1px;
+        }
+        .np-artist {
+            font-size: 0.75em;
+            color: var(--cyan);
+            opacity: 0.75;
+            white-space: nowrap;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        /* Marquee — JS adds .scrolling and sets --sd custom property */
+        @keyframes marqueeScroll {
+            0%,15% { transform: translateX(0); }
+            85%,100% { transform: translateX(var(--sd, -60px)); }
+        }
+        .np-title.scrolling,
+        .np-artist.scrolling {
+            animation: marqueeScroll 7s ease-in-out infinite alternate;
+        }
+
+        @keyframes npFadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .np-animate { animation: npFadeIn 0.45s ease forwards; }
+
+        /* ── Controls ── */
+        #controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Play button wrapper for ripple */
+        .play-btn-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-ripple {
+            position: absolute; inset: -8px;
+            border-radius: 50%;
+            border: 2px solid rgba(106,13,173,0.5);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .play-ripple.active {
+            animation: rippleOut 1.8s ease-out infinite;
+        }
+
+        @keyframes rippleOut {
+            0%   { transform: scale(1);    opacity: 0.6; }
+            100% { transform: scale(1.55); opacity: 0; }
+        }
 
         .control-btn {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary) 0%, #8a2be2 100%);
             color: #fff;
             border: none;
-            width: 70px;
-            height: 70px;
+            width: 70px; height: 70px;
             border-radius: 50%;
             font-size: 1.5em;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 24px rgba(106,13,173,0.55);
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
-
         .control-btn:hover {
-            background: #8a2be2;
             transform: scale(1.1);
+            box-shadow: 0 12px 32px rgba(106,13,173,0.75);
+        }
+        .control-btn.playing {
+            box-shadow: 0 8px 24px rgba(106,13,173,0.55), 0 0 0 0 rgba(106,13,173,0.4);
         }
 
         .volume-container {
@@ -251,130 +458,156 @@
             align-items: center;
             gap: 10px;
             width: 100%;
-            max-width: 300px;
+            max-width: 290px;
         }
+        .volume-container i { color: rgba(255,255,255,0.5); font-size: 0.9em; }
 
         #volume-slider {
             -webkit-appearance: none;
             width: 100%;
-            height: 8px;
-            background: rgba(0, 0, 0, 0.5);
+            height: 5px;
+            background: rgba(255,255,255,0.12);
             border-radius: 8px;
             outline: none;
         }
-
         #volume-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
-            background: var(--secondary-color);
+            width: 16px; height: 16px;
+            background: var(--cyan);
             border-radius: 50%;
             cursor: pointer;
+            box-shadow: 0 0 8px rgba(0,242,255,0.6);
         }
 
         footer {
             width: 100%;
             text-align: center;
             padding: 20px;
-            opacity: 0.7;
+            opacity: 0.45;
+            font-size: 0.85em;
             margin-top: auto;
         }
 
-        /* Modals */
+        /* ── Modals ── */
         #modal-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.82);
+            backdrop-filter: blur(6px);
             z-index: 1001;
-            display: none;
-            opacity: 0;
+            display: none; opacity: 0;
             transition: opacity 0.3s ease;
         }
-
         .modal {
             position: fixed;
             top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0.95);
-            background: var(--background-light);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translate(-50%,-50%) scale(0.95);
+            background: linear-gradient(160deg, #1a0a2e, #160828);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 18px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
             z-index: 1002;
-            width: 90%;
-            max-width: 600px;
-            display: none;
-            opacity: 0;
+            width: 90%; max-width: 580px;
+            display: none; opacity: 0;
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
-
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
         }
-
-        .modal-header h2 { color: var(--secondary-color); }
-
+        .modal-header h2 {
+            background: linear-gradient(120deg, #fff, var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.25em;
+        }
         .close-modal-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 2em;
-            cursor: pointer;
+            background: none; border: none;
+            color: rgba(255,255,255,0.5);
+            font-size: 1.8em; cursor: pointer;
+            transition: color 0.2s ease;
         }
-
-        .modal-body { padding: 30px; }
+        .close-modal-btn:hover { color: #fff; }
+        .modal-body { padding: 28px; }
 
         input[type="text"], textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
+            width: 100%; padding: 13px 15px;
+            margin-bottom: 12px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.3);
             color: #fff;
-            font-family: var(--font-family);
+            font-family: var(--font);
+            font-size: 0.9em;
+            outline: none;
+            transition: border-color 0.3s ease;
         }
+        input[type="text"]:focus, textarea:focus {
+            border-color: rgba(0,242,255,0.4);
+        }
+        textarea { min-height: 90px; resize: vertical; }
 
         .btn-submit {
-            background: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary), #8a2be2);
+            color: #fff; border: none;
+            padding: 13px 28px;
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s ease;
+            font-family: var(--font);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(106,13,173,0.4);
         }
-
-        .btn-submit:hover { background: #8a2be2; }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(106,13,173,0.6);
+        }
 
         .programme-card {
-            background: rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0,0,0,0.2);
+            padding: 18px 20px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.06);
         }
+        .programme-card h4 {
+            color: var(--cyan);
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+        .programme-card p { font-size: 0.9em; opacity: 0.75; }
 
+        .social-links { margin-top: 14px; }
         .social-links a {
-            color: #fff;
-            font-size: 1.5em;
-            margin-right: 20px;
+            color: rgba(255,255,255,0.6);
+            font-size: 1.4em;
+            margin-right: 18px;
             transition: color 0.3s ease;
         }
+        .social-links a:hover { color: var(--cyan); }
 
-        .social-links a:hover { color: var(--secondary-color); }
+        .modal-body a:not(.btn-submit) {
+            color: var(--cyan);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .modal-body p { font-size: 0.9em; opacity: 0.8; margin-bottom: 10px; }
     </style>
 </head>
 <body>
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
     <div class="main-container">
-        <!-- Navbar -->
+
         <nav class="navbar">
             <div class="navbar-brand">
-                <img src="https://i.imgur.com/dBeUl5M.png" alt="Radio Vivid Voice Logo">
+                <img src="https://i.imgur.com/dBeUl5M.png" alt="Logo">
                 <span>Radio Vivid Voice</span>
             </div>
             <div class="nav-links">
@@ -385,7 +618,6 @@
             </div>
         </nav>
 
-        <!-- Social Icons Bar - আগের মতোই সুন্দর, কোনো ডট/লাইন নাই -->
         <div class="social-icons-bar">
             <a href="https://facebook.com/radiovividvoice" target="_blank" aria-label="Facebook">
                 <i class="fab fa-facebook-f"></i>
@@ -398,19 +630,40 @@
             </a>
         </div>
 
-        <!-- Radio Player -->
         <div id="radio-player">
             <canvas id="visualizer"></canvas>
+
             <div class="station-info">
-                <img id="station-logo" src="https://i.imgur.com/dBeUl5M.png" alt="Station Logo">
+                <div class="logo-wrapper">
+                    <div class="logo-ring" id="logo-ring"></div>
+                    <img id="station-logo" src="https://i.imgur.com/dBeUl5M.png" alt="Station Logo">
+                </div>
                 <h1 id="station-name">Radio Vivid Voice</h1>
-                <p id="station-slogan">“জোরসে আওয়াজ তোলো”</p>
+                <p id="station-slogan">"জোরসে আওয়াজ তোলো"</p>
             </div>
+
+            <div id="now-playing-card">
+                <div class="np-header">
+                    <span class="np-live-dot"></span>
+                    <span class="np-label-text">Now Playing</span>
+                </div>
+                <div class="np-scroll-wrapper">
+                    <div id="np-title" class="np-title">Connecting...</div>
+                </div>
+                <div class="np-scroll-wrapper" style="margin-top:3px;">
+                    <div id="np-artist" class="np-artist"></div>
+                </div>
+            </div>
+
             <audio id="audio-stream" src="https://stream.zeno.fm/xuin6ocdc2juv" crossorigin="anonymous"></audio>
+
             <div id="controls">
-                <button id="play-pause-btn" class="control-btn">
-                    <i class="fas fa-play"></i>
-                </button>
+                <div class="play-btn-wrapper">
+                    <div class="play-ripple" id="play-ripple"></div>
+                    <button id="play-pause-btn" class="control-btn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
                 <div class="volume-container">
                     <i class="fas fa-volume-down"></i>
                     <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
@@ -424,10 +677,8 @@
         </footer>
     </div>
 
-    <!-- Modals -->
     <div id="modal-overlay"></div>
 
-    <!-- About Modal -->
     <div id="about-modal" class="modal">
         <div class="modal-header">
             <h2>About Radio Vivid Voice</h2>
@@ -438,12 +689,11 @@
                 <p>Radio Vivid Voice is a 24/7 independent radio station dedicated to amplifying youth voices, playing the best hits, and creating a platform for expression. We believe in being loud, bold, and heard!</p>
             </div>
             <div class="programme-card">
-                <p class="disclaimer"><b>Disclaimer:</b> Dear Listeners, Radio Vivid Voice is a passion project and will always remain non-profit and commercial-free. The adverts you occasionally hear are part of the broadcasting platform's support structure.</p>
+                <p><b>Disclaimer:</b> Dear Listeners, Radio Vivid Voice is a passion project and will always remain non-profit and commercial-free. The adverts you occasionally hear are part of the broadcasting platform's support structure.</p>
             </div>
         </div>
     </div>
 
-    <!-- Request Modal -->
     <div id="request-modal" class="modal">
         <div class="modal-header">
             <h2>Request a Song</h2>
@@ -461,7 +711,6 @@
         </div>
     </div>
 
-    <!-- Programmes Modal -->
     <div id="programmes-modal" class="modal">
         <div class="modal-header">
             <h2>Our Programmes</h2>
@@ -479,7 +728,6 @@
         </div>
     </div>
 
-    <!-- Contact Modal -->
     <div id="contact-modal" class="modal">
         <div class="modal-header">
             <h2>Contact Us</h2>
@@ -496,109 +744,194 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const audioStream = document.getElementById('audio-stream');
-            const playPauseBtn = document.getElementById('play-pause-btn');
-            const volumeSlider = document.getElementById('volume-slider');
-            const canvas = document.getElementById('visualizer');
-            const canvasCtx = canvas.getContext('2d');
+    document.addEventListener('DOMContentLoaded', () => {
 
-            let audioContext, analyser, source, isPlaying = false;
+        const audio       = document.getElementById('audio-stream');
+        const playBtn     = document.getElementById('play-pause-btn');
+        const volSlider   = document.getElementById('volume-slider');
+        const canvas      = document.getElementById('visualizer');
+        const ctx         = canvas.getContext('2d');
+        const logoEl      = document.getElementById('station-logo');
+        const logoRing    = document.getElementById('logo-ring');
+        const playRipple  = document.getElementById('play-ripple');
+        const eqBars      = document.getElementById('eq-bars');
+        const npTitleEl   = document.getElementById('np-title');
+        const npArtistEl  = document.getElementById('np-artist');
+        const npCard      = document.getElementById('now-playing-card');
 
-            function setupVisualizer() {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                analyser = audioContext.createAnalyser();
-                source = audioContext.createMediaElementSource(audioStream);
-                source.connect(analyser);
-                analyser.connect(audioContext.destination);
-                analyser.fftSize = 256;
-                const bufferLength = analyser.frequencyBinCount;
-                const dataArray = new Uint8Array(bufferLength);
+        let audioCtx, analyser, source, isPlaying = false;
 
-                canvas.width = canvas.offsetWidth;
+        // ── Visualizer ──
+        function setupVisualizer() {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            analyser = audioCtx.createAnalyser();
+            source   = audioCtx.createMediaElementSource(audio);
+            source.connect(analyser);
+            analyser.connect(audioCtx.destination);
+            analyser.fftSize = 256;
+
+            const bufLen  = analyser.frequencyBinCount;
+            const data    = new Uint8Array(bufLen);
+
+            function resizeCanvas() {
+                canvas.width  = canvas.offsetWidth;
                 canvas.height = canvas.offsetHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
 
-                function draw() {
-                    requestAnimationFrame(draw);
-                    analyser.getByteFrequencyData(dataArray);
-                    canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
-
-                    const barWidth = (canvas.width / bufferLength) * 2.5;
-                    let x = 0;
-                    for (let i = 0; i < bufferLength; i++) {
-                        const barHeight = dataArray[i] * 1.5;
-                        const gradient = canvasCtx.createLinearGradient(0, canvas.height, 0, canvas.height - barHeight);
-                        gradient.addColorStop(0, 'rgba(106, 13, 173, 0.5)');
-                        gradient.addColorStop(1, 'rgba(0, 242, 255, 0.5)');
-                        canvasCtx.fillStyle = gradient;
-                        canvasCtx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight);
-                        x += barWidth + 1;
-                    }
+            (function draw() {
+                requestAnimationFrame(draw);
+                analyser.getByteFrequencyData(data);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                const bw = (canvas.width / bufLen) * 2.5;
+                let x = 0;
+                for (let i = 0; i < bufLen; i++) {
+                    const bh = data[i] * 1.5;
+                    const g  = ctx.createLinearGradient(0, canvas.height, 0, canvas.height - bh);
+                    g.addColorStop(0, 'rgba(106,13,173,0.45)');
+                    g.addColorStop(1, 'rgba(0,242,255,0.45)');
+                    ctx.fillStyle = g;
+                    ctx.fillRect(x, canvas.height - bh / 2, bw, bh);
+                    x += bw + 1;
                 }
-                draw();
+            })();
+        }
+
+        // ── Play / Pause ──
+        function setPlayingState(playing) {
+            isPlaying = playing;
+            playBtn.innerHTML = playing
+                ? '<i class="fas fa-pause"></i>'
+                : '<i class="fas fa-play"></i>';
+            playBtn.classList.toggle('playing', playing);
+            playRipple.classList.toggle('active', playing);
+            logoEl.classList.toggle('playing', playing);
+            logoRing.classList.toggle('visible', playing);
+            
+            // Null check যুক্ত করা হয়েছে যাতে eqBars না থাকলে স্ক্রিপ্ট ক্র্যাশ না করে
+            if (eqBars) {
+                eqBars.classList.toggle('paused', !playing);
             }
+        }
 
-            playPauseBtn.addEventListener('click', () => {
-                if (!audioContext) setupVisualizer();
-                if (isPlaying) {
-                    audioStream.pause();
-                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-                } else {
-                    audioStream.play();
-                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                }
-                isPlaying = !isPlaying;
-            });
-
-            volumeSlider.addEventListener('input', e => audioStream.volume = e.target.value);
-
-            // Modal System
-            const modalTriggers = document.querySelectorAll('[data-modal]');
-            const closeBtns = document.querySelectorAll('.close-modal-btn');
-            const overlay = document.getElementById('modal-overlay');
-
-            modalTriggers.forEach(t => t.addEventListener('click', e => {
-                e.preventDefault();
-                const modal = document.getElementById(t.dataset.modal + '-modal');
-                openModal(modal);
-            }));
-
-            closeBtns.forEach(b => b.addEventListener('click', () => closeModal(b.closest('.modal'))));
-            overlay.addEventListener('click', () => {
-                const open = document.querySelector('.modal[style*="block"]');
-                if (open) closeModal(open);
-            });
-
-            function openModal(m) {
-                overlay.style.display = 'block';
-                m.style.display = 'block';
-                setTimeout(() => {
-                    overlay.style.opacity = '1';
-                    m.style.opacity = '1';
-                    m.style.transform = 'translate(-50%, -50%) scale(1)';
-                }, 10);
+        playBtn.addEventListener('click', () => {
+            if (!audioCtx) setupVisualizer();
+            if (isPlaying) {
+                audio.pause();
+                setPlayingState(false);
+            } else {
+                audio.play();
+                setPlayingState(true);
             }
-
-            function closeModal(m) {
-                overlay.style.opacity = '0';
-                m.style.opacity = '0';
-                m.style.transform = 'translate(-50%, -50%) scale(0.95)';
-                setTimeout(() => {
-                    overlay.style.display = 'none';
-                    m.style.display = 'none';
-                }, 300);
-            }
-
-            // Request Form
-            document.getElementById('request-form').addEventListener('submit', e => {
-                e.preventDefault();
-                const f = new FormData(e.target);
-                const body = `Name: ${f.get('name')}\nLocation: ${f.get('location')}\nSong: ${f.get('songName')}\nArtist: ${f.get('artistName')}\nMessage: ${f.get('message')}`;
-                window.location.href = `mailto:radiovividvoice@gmail.com?subject=Song Request&body=${encodeURIComponent(body)}`;
-                closeModal(document.getElementById('request-modal'));
-                e.target.reset();
-            });
         });
+
+        volSlider.addEventListener('input', e => { audio.volume = e.target.value; });
+
+        // ── Marquee helper ──
+        function applyMarquee(el) {
+            el.classList.remove('scrolling');
+            void el.offsetWidth;
+            const overflow = el.scrollWidth - el.parentElement.clientWidth;
+            if (overflow > 4) {
+                el.style.setProperty('--sd', `-${overflow + 12}px`);
+                el.classList.add('scrolling');
+            }
+        }
+
+        // ── Now Playing update ──
+        function updateNowPlaying(streamTitle) {
+            let artist = '', title = streamTitle || '';
+            if (title.includes(' - ')) {
+                const i = title.indexOf(' - ');
+                artist = title.substring(0, i).trim();
+                title  = title.substring(i + 3).trim();
+            }
+
+            npCard.style.opacity = '0';
+            setTimeout(() => {
+                npTitleEl.textContent  = title  || 'Radio Vivid Voice';
+                npArtistEl.textContent = artist || '';
+
+                npTitleEl.classList.remove('np-animate','scrolling');
+                npArtistEl.classList.remove('np-animate','scrolling');
+                void npTitleEl.offsetWidth;
+
+                npTitleEl.classList.add('np-animate');
+                npArtistEl.classList.add('np-animate');
+                npCard.style.opacity = '1';
+
+                requestAnimationFrame(() => {
+                    applyMarquee(npTitleEl);
+                    applyMarquee(npArtistEl);
+                });
+            }, 350);
+        }
+
+        // ── Zeno.fm SSE Metadata ──
+        function connectSSE() {
+            let sse;
+            try {
+                sse = new EventSource('https://api.zeno.fm/mounts/metadata/subscribe/xuin6ocdc2juv');
+            } catch(e) { setTimeout(connectSSE, 10000); return; }
+
+            sse.onmessage = e => {
+                try {
+                    const d = JSON.parse(e.data);
+                    if (d.streamTitle !== undefined) updateNowPlaying(d.streamTitle);
+                } catch(_) {}
+            };
+            sse.onerror = () => { sse.close(); setTimeout(connectSSE, 10000); };
+        }
+        connectSSE();
+
+        // ── Modal System ──
+        const overlay  = document.getElementById('modal-overlay');
+
+        document.querySelectorAll('[data-modal]').forEach(t =>
+            t.addEventListener('click', e => {
+                e.preventDefault();
+                const m = document.getElementById(t.dataset.modal + '-modal');
+                if (m) openModal(m);
+            })
+        );
+        document.querySelectorAll('.close-modal-btn').forEach(b =>
+            b.addEventListener('click', () => closeModal(b.closest('.modal')))
+        );
+        overlay.addEventListener('click', () => {
+            const open = document.querySelector('.modal[style*="block"]');
+            if (open) closeModal(open);
+        });
+
+        function openModal(m) {
+            overlay.style.display = 'block';
+            m.style.display = 'block';
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+                m.style.opacity = '1';
+                m.style.transform = 'translate(-50%,-50%) scale(1)';
+            }, 10);
+        }
+        function closeModal(m) {
+            overlay.style.opacity = '0';
+            m.style.opacity = '0';
+            m.style.transform = 'translate(-50%,-50%) scale(0.95)';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                m.style.display = 'none';
+            }, 300);
+        }
+
+        // ── Request Form ──
+        document.getElementById('request-form').addEventListener('submit', e => {
+            e.preventDefault();
+            const f = new FormData(e.target);
+            const body = `Name: ${f.get('name')}\nLocation: ${f.get('location')}\nSong: ${f.get('songName')}\nArtist: ${f.get('artistName')}\nMessage: ${f.get('message')}`;
+            window.location.href = `mailto:radiovividvoice@gmail.com?subject=Song Request&body=${encodeURIComponent(body)}`;
+            closeModal(document.getElementById('request-modal'));
+            e.target.reset();
+        });
+    });
     </script>
 </body>
 </html>
