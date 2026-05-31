@@ -4,25 +4,46 @@
     <meta name="google-site-verification" content="2YVtNRmliSpLft_54LS9WwQySMeNmOyq1q5qRq8H7O0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
     <meta name="description" content="Radio Vivid Voice - 24/7 independent radio station amplifying youth voices with the best hits. Non-profit and commercial-free!">
     <meta name="keywords" content="independent radio, youth radio, 24/7 music, online radio, Radio Vivid Voice, non-profit radio, music hits, bengali radio">
     <meta name="author" content="Radio Vivid Voice Team">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://rvvlive.vercel.app/">
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Radio Vivid Voice - The True Voice of the Heart">
-    <meta property="og:description" content="Listen to Radio Vivid Voice for 24/7 music hits and youth expression.">
+    <meta property="og:description" content="Listen to Radio Vivid Voice for 24/7 music hits and youth expression. A non-profit platform to be loud, bold, and heard!">
     <meta property="og:url" content="https://rvvlive.vercel.app/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://i.imgur.com/dBeUl5M.png">
     <meta property="og:site_name" content="Radio Vivid Voice">
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Radio Vivid Voice - The True Voice of the Heart">
-    <meta name="twitter:description" content="Tune into Radio Vivid Voice for non-stop music and youth voices.">
+    <meta name="twitter:description" content="Tune into Radio Vivid Voice for non-stop music and youth voices. Commercial-free and passionate!">
     <meta name="twitter:image" content="https://i.imgur.com/dBeUl5M.png">
+
+    <!-- Structured Data -->
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"RadioStation","name":"Radio Vivid Voice","url":"https://rvvlive.vercel.app/","description":"Non-stop World Music 24/7.","logo":"https://i.imgur.com/dBeUl5M.png","sameAs":["https://facebook.com/RadioVividVoice","https://instagram.com/radio_vivid_voice"]}
+    {
+      "@context": "https://schema.org",
+      "@type": "RadioStation",
+      "name": "Radio Vivid Voice",
+      "url": "https://rvvlive.vercel.app/",
+      "description": "Non-stop World Music 24/7.",
+      "logo": "https://i.imgur.com/dBeUl5M.png",
+      "sameAs": [
+        "https://facebook.com/RadioVividVoice",
+        "https://instagram.com/radio_vivid_voice"
+      ]
+    }
     </script>
+
     <title>Radio Vivid Voice - The True Voice of the Heart</title>
+
     <link rel="icon" href="https://i.imgur.com/2VUar8c.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,175 +53,101 @@
 
     <style>
         :root {
-            --primary:   #6a0dad;
-            --cyan:      #00f2ff;
-            --pink:      #d400ff;
-            --bg-deep:   #09000f;
-            --bg-card:   rgba(18, 4, 30, 0.75);
-            --text:      #ede0ff;
-            --font:      'Poppins', sans-serif;
+            --primary-color: #6a0dad;
+            --secondary-color: #00f2ff;
+            --background-dark: #10001c;
+            --background-light: #1c0b2b;
+            --text-color: #e0e0e0;
+            --font-family: 'Poppins', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* ── Scrollbar ── */
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-
         body {
-            font-family: var(--font);
-            background: var(--bg-deep);
-            color: var(--text);
+            font-family: var(--font-family);
+            background: linear-gradient(135deg, var(--background-dark), var(--background-light));
+            color: var(--text-color);
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* ══════════════════════════════════════
-           ANIMATED BACKGROUND
-        ══════════════════════════════════════ */
-        .bg-scene {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .bg-scene::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-            opacity: 0.035;
-        }
-
-        .orb { position: absolute; border-radius: 50%; filter: blur(90px); }
-
-        .orb-1 {
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, #5500cc 0%, transparent 70%);
-            top: -200px; left: -150px;
-            animation: drift1 20s ease-in-out infinite;
-        }
-
-        .orb-2 {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, #007acc 0%, transparent 70%);
-            bottom: -150px; right: -100px;
-            animation: drift2 25s ease-in-out infinite;
-        }
-
-        .orb-3 {
-            width: 350px; height: 350px;
-            background: radial-gradient(circle, #aa00dd 0%, transparent 70%);
-            top: 40%; left: 55%;
-            animation: drift3 18s ease-in-out infinite;
-        }
-
-        @keyframes drift1 {
-            0%,100% { transform: translate(0,0) scale(1); }
-            33%      { transform: translate(80px, 60px) scale(1.1); }
-            66%      { transform: translate(-40px, 100px) scale(0.95); }
-        }
-        @keyframes drift2 {
-            0%,100% { transform: translate(0,0) scale(1); }
-            50%      { transform: translate(-70px, -80px) scale(1.15); }
-        }
-        @keyframes drift3 {
-            0%,100% { transform: translate(0,0) scale(1); opacity: 0.4; }
-            50%      { transform: translate(60px,-50px) scale(1.2); opacity: 0.7; }
-        }
-
-        /* ══════════════════════════════════════
-           LAYOUT & NAVBAR
-        ══════════════════════════════════════ */
         .main-container {
-            position: relative;
-            z-index: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            gap: 28px;
+            gap: 30px;
         }
 
+        /* Navbar */
         .navbar {
             width: 100%;
             max-width: 1200px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 28px;
-            background: rgba(9, 0, 15, 0.55);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.08);
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: fixed;
-            top: 18px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
         }
 
         .navbar-brand {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.4em;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--cyan), var(--pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            gap: 15px;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--secondary-color);
         }
 
         .navbar-brand img {
-            width: 38px; height: 38px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            border: 2px solid rgba(0,242,255,0.3);
         }
 
         .nav-links a {
-            color: rgba(255,255,255,0.75);
+            color: var(--text-color);
             text-decoration: none;
-            margin-left: 24px;
-            font-size: 0.9em;
+            margin-left: 25px;
             font-weight: 400;
             transition: color 0.3s ease;
-            letter-spacing: 0.3px;
         }
 
-        .nav-links a:hover { color: var(--cyan); }
+        .nav-links a:hover { color: var(--secondary-color); }
 
-        /* ══════════════════════════════════════
-           SOCIAL ICONS BAR
-        ══════════════════════════════════════ */
+        /* Social Icons Bar */
         .social-icons-bar {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-top: 160px;
-            animation: slideUp 0.7s 0.2s both cubic-bezier(.16,1,.3,1);
+            gap: 45px;
+            margin-top: 170px;
+            z-index: 999;
         }
 
         .social-icons-bar a,
         .social-icons-bar button {
-            width: 66px; height: 66px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.07);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255,255,255,0.13);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.1em;
+            font-size: 2.3em;
             color: #fff;
             text-decoration: none;
-            transition: all 0.35s cubic-bezier(.16,1,.3,1);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
             cursor: pointer;
@@ -210,10 +157,11 @@
         .social-icons-bar button::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.08));
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
             opacity: 0;
-            transition: opacity 0.35s ease;
+            transition: opacity 0.4s ease;
         }
 
         .social-icons-bar a:hover::before,
@@ -221,123 +169,38 @@
 
         .social-icons-bar a:hover,
         .social-icons-bar button:hover {
-            background: var(--cyan);
+            background: var(--secondary-color);
             color: #000;
-            transform: translateY(-10px) scale(1.1);
-            box-shadow: 0 20px 40px rgba(0,242,255,0.4);
-            border-color: var(--cyan);
+            transform: translateY(-10px) scale(1.12);
+            box-shadow: 0 20px 40px rgba(0, 242, 255, 0.5);
         }
 
-        .social-icons-bar i { pointer-events: none; }
+        .social-icons-bar i {
+            pointer-events: none;
+            transform: translateY(1px);
+        }
 
-        /* ══════════════════════════════════════
-           RADIO PLAYER CARD
-        ══════════════════════════════════════ */
+        /* Radio Player */
         #radio-player {
-            background: var(--bg-card);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-radius: 28px;
-            padding: 38px 36px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+            padding: 40px;
             width: 100%;
-            max-width: 440px;
+            max-width: 450px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
-            overflow: hidden;
-            box-shadow:
-                0 0 0 1px rgba(106,13,173,0.2),
-                0 20px 60px rgba(0,0,0,0.6),
-                inset 0 1px 0 rgba(255,255,255,0.06);
-            animation: slideUp 0.7s 0.4s both cubic-bezier(.16,1,.3,1);
+            margin-top: 10px;
         }
 
-        #radio-player::before {
-            content: '';
+        #visualizer {
             position: absolute;
-            top: 0; left: 20%; right: 20%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-            opacity: 0.5;
-        }
-
-        /* ── LIVE DOT PULSE ── */
-        .live-indicator {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            font-size: 0.7em;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #fff;
-            z-index: 10;
-        }
-
-        .live-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #ff004c;
-            border-radius: 50%;
-            animation: pulseLive 1.5s infinite;
-        }
-
-        @keyframes pulseLive {
-            0% { box-shadow: 0 0 0 0 rgba(255, 0, 76, 0.7); }
-            70% { box-shadow: 0 0 0 6px rgba(255, 0, 76, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 0, 76, 0); }
-        }
-
-        .player-content { position: relative; z-index: 1; }
-
-        /* ── Logo ── */
-        .logo-wrapper {
-            position: relative;
-            width: 188px;
-            height: 188px;
-            margin: 0 auto 18px;
-        }
-
-        .logo-ring {
-            position: absolute;
-            inset: -5px;
-            border-radius: 50%;
-            background: conic-gradient(
-                from 0deg,
-                var(--primary) 0%,
-                var(--cyan) 40%,
-                var(--pink) 70%,
-                var(--primary) 100%
-            );
-            animation: spinRing 3s linear infinite;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-
-        .logo-ring::after {
-            content: '';
-            position: absolute;
-            inset: 4px;
-            border-radius: 50%;
-            background: var(--bg-deep);
-        }
-
-        .logo-wrapper.playing .logo-ring { opacity: 1; }
-        .logo-wrapper.playing #station-logo {
-            box-shadow:
-                0 0 25px rgba(106,13,173,0.7),
-                0 0 60px rgba(0,242,255,0.25);
-        }
-
-        @keyframes spinRing {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.6;
         }
 
         #station-logo {
@@ -345,121 +208,106 @@
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            position: absolute;
-            top: 4px; left: 4px;
-            z-index: 1;
-            box-shadow: 0 0 25px rgba(0,0,0,0.7);
-            transition: box-shadow 0.6s ease;
+            margin-bottom: 20px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
         }
 
-        /* ── Text ── */
-        #station-name {
-            font-size: 1.9em;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: -0.3px;
-        }
+        #station-name { font-size: 2em; font-weight: 700; color: #fff; }
 
         #station-slogan {
-            font-size: 1em;
+            font-size: 1.1em;
             font-weight: 300;
             font-family: 'Tiro Bangla', sans-serif;
-            color: rgba(255,255,255,0.65);
-            margin: 4px 0 20px;
+            opacity: 0.8;
+            margin-bottom: 22px;
         }
 
-        /* ══════════════════════════════════════
-           NOW PLAYING CARD
-        ══════════════════════════════════════ */
+        /* ── Now Playing Card ── */
         #now-playing-card {
             width: 100%;
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(0,242,255,0.15);
+            background: rgba(0, 0, 0, 0.28);
+            border: 1px solid rgba(0, 242, 255, 0.18);
             border-radius: 14px;
-            padding: 13px 16px;
+            padding: 14px 18px;
             margin-bottom: 22px;
+            transition: opacity 0.4s ease;
             text-align: left;
-            transition: opacity 0.4s ease, border-color 0.4s ease;
-            box-shadow: inset 0 0 20px rgba(0,242,255,0.03);
         }
 
         .np-header {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
             margin-bottom: 9px;
         }
 
-        .np-eq {
-            display: flex;
-            align-items: flex-end;
-            gap: 2px;
-            height: 12px;
+        /* পালসিং লাল ডট — LIVE ইন্ডিকেটর */
+        .np-live-dot {
+            width: 7px;
+            height: 7px;
+            background: #ff3c3c;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: livePulse 1.6s ease-in-out infinite;
         }
 
-        .np-eq span {
-            display: block;
-            width: 3px;
-            background: var(--cyan);
-            border-radius: 2px;
-            transform-origin: bottom;
-            animation: eqBounce 0.9s ease-in-out infinite alternate;
-        }
-
-        .np-eq span:nth-child(1) { height: 45%;  animation-delay: 0.0s;  }
-        .np-eq span:nth-child(2) { height: 100%; animation-delay: 0.15s; }
-        .np-eq span:nth-child(3) { height: 70%;  animation-delay: 0.3s;  }
-        .np-eq span:nth-child(4) { height: 55%;  animation-delay: 0.1s;  }
-
-        @keyframes eqBounce {
-            from { transform: scaleY(0.25); opacity: 0.5; }
-            to   { transform: scaleY(1);    opacity: 1;   }
+        @keyframes livePulse {
+            0%, 100% { opacity: 1;   transform: scale(1);   box-shadow: 0 0 0 0 rgba(255,60,60,0.6); }
+            50%       { opacity: 0.5; transform: scale(0.85); box-shadow: 0 0 0 4px rgba(255,60,60,0); }
         }
 
         .np-label-text {
-            font-size: 0.58em;
+            font-size: 0.6em;
             font-weight: 700;
             letter-spacing: 2.5px;
-            color: var(--cyan);
+            color: var(--secondary-color);
             text-transform: uppercase;
+            opacity: 0.9;
         }
 
+        /* স্ক্রোলিং টেক্সট wrapper */
         .np-scroll-wrapper {
             overflow: hidden;
             width: 100%;
             position: relative;
         }
 
+        /* টেক্সটের fade-out মাস্ক ডানদিকে */
         .np-scroll-wrapper::after {
             content: '';
             position: absolute;
             right: 0; top: 0;
-            width: 28px; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(6, 1, 14, 0.9));
+            width: 30px; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(5, 0, 10, 0.85));
             pointer-events: none;
             z-index: 1;
         }
 
         .np-title {
-            font-size: 0.93em;
+            font-size: 0.95em;
             font-weight: 600;
-            color: #fff;
+            color: #ffffff;
             white-space: nowrap;
             display: inline-block;
         }
 
         .np-artist {
-            font-size: 0.76em;
-            color: var(--cyan);
+            font-size: 0.78em;
+            font-weight: 400;
+            color: var(--secondary-color);
             opacity: 0.8;
             white-space: nowrap;
             display: inline-block;
             margin-top: 2px;
         }
 
+        /* মার্কি অ্যানিমেশন — JS দিয়ে .scrolling ক্লাস যোগ হয় */
         @keyframes marqueeScroll {
-            0%,15%  { transform: translateX(0); }
-            85%,100%{ transform: translateX(var(--scroll-dist)); }
+            0%   { transform: translateX(0); }
+            15%  { transform: translateX(0); }           /* শুরুতে ১.৫s স্থির */
+            85%  { transform: translateX(var(--scroll-dist)); }
+            100% { transform: translateX(var(--scroll-dist)); } /* শেষেও স্থির */
         }
 
         .np-title.scrolling,
@@ -467,146 +315,81 @@
             animation: marqueeScroll 7s ease-in-out infinite alternate;
         }
 
+        /* Song change fade animation */
         @keyframes npFadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to   { opacity: 1; transform: translateY(0);   }
+            from { opacity: 0; transform: translateY(5px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .np-animate { animation: npFadeIn 0.4s ease forwards; }
-
-        /* ══════════════════════════════════════
-           CONTROLS
-        ══════════════════════════════════════ */
-        #controls {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 18px;
+        .np-animate {
+            animation: npFadeIn 0.45s ease forwards;
         }
 
-        .play-btn-wrapper {
-            position: relative;
-            width: 72px;
-            height: 72px;
-        }
+        /* ── Controls ── */
+        #controls { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 
         .control-btn {
-            background: linear-gradient(135deg, var(--primary), #9b10e8);
+            background: var(--primary-color);
             color: #fff;
             border: none;
-            width: 72px; height: 72px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             font-size: 1.5em;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow:
-                0 5px 20px rgba(106,13,173,0.5),
-                0 0 0 0 rgba(106,13,173,0.4);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
         }
 
         .control-btn:hover {
-            transform: scale(1.08);
-            box-shadow:
-                0 8px 30px rgba(106,13,173,0.7),
-                0 0 0 0 rgba(106,13,173,0.3);
+            background: #8a2be2;
+            transform: scale(1.1);
         }
 
-        .control-btn.playing {
-            animation: breatheGlow 2.5s ease-in-out infinite;
-        }
-
-        @keyframes breatheGlow {
-            0%,100% { box-shadow: 0 5px 20px rgba(106,13,173,0.5), 0 0 0 0   rgba(0,242,255,0.3); }
-            50%     { box-shadow: 0 5px 30px rgba(106,13,173,0.8), 0 0 20px 8px rgba(0,242,255,0.15); }
-        }
-
-        .ripple {
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            border: 2px solid var(--cyan);
-            animation: rippleOut 0.7s ease-out forwards;
-            pointer-events: none;
-        }
-
-        @keyframes rippleOut {
-            from { transform: scale(1); opacity: 0.7; }
-            to   { transform: scale(2.2); opacity: 0; }
-        }
-
-        /* Volume */
         .volume-container {
             display: flex;
             align-items: center;
             gap: 10px;
             width: 100%;
-            max-width: 290px;
-        }
-
-        .volume-container i { 
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9em;
-            flex-shrink: 0;
+            max-width: 300px;
         }
 
         #volume-slider {
             -webkit-appearance: none;
-            appearance: none;
             width: 100%;
-            height: 4px;
-            border-radius: 4px;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
             outline: none;
-            cursor: pointer;
-            background: linear-gradient(
-                to right,
-                var(--cyan) 0%,
-                var(--cyan) var(--vol, 70%),
-                rgba(255,255,255,0.15) var(--vol, 70%),
-                rgba(255,255,255,0.15) 100%
-            );
         }
 
         #volume-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 14px; height: 14px;
-            background: #fff;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 0 6px rgba(0,242,255,0.6);
-            transition: transform 0.2s ease;
         }
 
-        #volume-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.3);
-        }
-
-        /* ══════════════════════════════════════
-           FOOTER & MODALS
-        ══════════════════════════════════════ */
         footer {
+            width: 100%;
             text-align: center;
-            padding: 16px;
-            font-size: 0.8em;
-            color: rgba(255,255,255,0.3);
-            animation: slideUp 0.7s 0.6s both cubic-bezier(.16,1,.3,1);
+            padding: 20px;
+            opacity: 0.7;
+            margin-top: auto;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to   { opacity: 1; transform: translateY(0);    }
-        }
-
+        /* ── Modals ── */
         #modal-overlay {
             position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
             z-index: 1001;
             display: none;
             opacity: 0;
@@ -617,108 +400,82 @@
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%) scale(0.95);
-            background: rgba(16, 4, 28, 0.92);
-            backdrop-filter: blur(20px);
-            border-radius: 18px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+            background: var(--background-light);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             z-index: 1002;
             width: 90%;
-            max-width: 580px;
+            max-width: 600px;
             display: none;
             opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(.16,1,.3,1);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 28px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .modal-header h2 {
-            background: linear-gradient(90deg, var(--cyan), var(--pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 1.2em;
-        }
+        .modal-header h2 { color: var(--secondary-color); }
 
         .close-modal-btn {
             background: none;
             border: none;
-            color: rgba(255,255,255,0.5);
-            font-size: 1.8em;
+            color: #fff;
+            font-size: 2em;
             cursor: pointer;
-            line-height: 1;
-            transition: color 0.2s ease;
         }
 
-        .close-modal-btn:hover { color: #fff; }
-
-        .modal-body { padding: 26px 28px; }
+        .modal-body { padding: 30px; }
 
         input[type="text"], textarea {
             width: 100%;
-            padding: 13px 15px;
-            margin-bottom: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
             border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             color: #fff;
-            font-family: var(--font);
-            font-size: 0.9em;
-            transition: border-color 0.3s ease;
-            outline: none;
+            font-family: var(--font-family);
         }
-
-        input[type="text"]:focus, textarea:focus { border-color: rgba(0,242,255,0.4); }
-        textarea { resize: vertical; min-height: 90px; }
 
         .btn-submit {
-            background: linear-gradient(135deg, var(--primary), #9b10e8);
+            background: var(--primary-color);
             color: #fff;
             border: none;
-            padding: 13px 28px;
+            padding: 15px 30px;
             border-radius: 10px;
             cursor: pointer;
-            font-family: var(--font);
-            font-weight: 600;
-            transition: opacity 0.3s ease, transform 0.2s ease;
+            transition: background 0.3s ease;
         }
 
-        .btn-submit:hover { opacity: 0.85; transform: translateY(-1px); }
+        .btn-submit:hover { background: #8a2be2; }
 
         .programme-card {
-            background: rgba(255,255,255,0.04);
-            padding: 18px;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(255,255,255,0.07);
-            font-size: 0.9em;
-            line-height: 1.6;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .programme-card h4 { color: var(--cyan); margin-bottom: 5px; font-size: 1em; }
+        .social-links a {
+            color: #fff;
+            font-size: 1.5em;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
 
-        .social-links { margin-top: 14px; }
-        .social-links a { color: rgba(255,255,255,0.6); font-size: 1.4em; margin-right: 18px; transition: color 0.3s ease; }
-        .social-links a:hover { color: var(--cyan); }
-        .modal-body a[href^="mailto"] { color: var(--cyan); text-decoration: none; font-size: 0.95em; }
+        .social-links a:hover { color: var(--secondary-color); }
     </style>
 </head>
 <body>
-
-    <div class="bg-scene">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
-
     <div class="main-container">
 
+        <!-- Navbar -->
         <nav class="navbar">
             <div class="navbar-brand">
                 <img src="https://i.imgur.com/dBeUl5M.png" alt="Radio Vivid Voice Logo">
@@ -732,6 +489,7 @@
             </div>
         </nav>
 
+        <!-- Social Icons Bar -->
         <div class="social-icons-bar">
             <a href="https://facebook.com/radiovividvoice" target="_blank" aria-label="Facebook">
                 <i class="fab fa-facebook-f"></i>
@@ -744,50 +502,40 @@
             </a>
         </div>
 
+        <!-- Radio Player -->
         <div id="radio-player">
-            <div class="live-indicator">
-                <span class="live-dot"></span> LIVE
-            </div>
-
-            <div class="player-content">
-                <div class="logo-wrapper" id="logo-wrapper">
-                    <div class="logo-ring"></div>
-                    <img id="station-logo" src="https://i.imgur.com/dBeUl5M.png" alt="Station Logo">
-                </div>
-
+            <canvas id="visualizer"></canvas>
+            <div class="station-info">
+                <img id="station-logo" src="https://i.imgur.com/dBeUl5M.png" alt="Station Logo">
                 <h1 id="station-name">Radio Vivid Voice</h1>
                 <p id="station-slogan">"জোরসে আওয়াজ তোলো"</p>
+            </div>
 
-                <div id="now-playing-card">
-                    <div class="np-header">
-                        <div class="np-eq">
-                            <span></span><span></span><span></span><span></span>
-                        </div>
-                        <span class="np-label-text">Now Playing</span>
-                    </div>
-                    <div class="np-scroll-wrapper">
-                        <div id="np-title" class="np-title">Connecting...</div>
-                    </div>
-                    <div class="np-scroll-wrapper" style="margin-top:3px;">
-                        <div id="np-artist" class="np-artist"></div>
-                    </div>
+            <!-- ── Now Playing Card ── -->
+            <div id="now-playing-card">
+                <div class="np-header">
+                    <span class="np-live-dot"></span>
+                    <span class="np-label-text">Now Playing</span>
                 </div>
-
-                <audio id="audio-stream" src="https://stream.zeno.fm/xuin6ocdc2juv" crossorigin="anonymous"></audio>
-
-                <div id="controls">
-                    <div class="play-btn-wrapper">
-                        <button id="play-pause-btn" class="control-btn">
-                            <i class="fas fa-play"></i>
-                        </button>
-                    </div>
-                    <div class="volume-container">
-                        <i class="fas fa-volume-down"></i>
-                        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
-                        <i class="fas fa-volume-up"></i>
-                    </div>
+                <div class="np-scroll-wrapper">
+                    <div id="np-title" class="np-title">Connecting...</div>
                 </div>
+                <div class="np-scroll-wrapper" style="margin-top:3px;">
+                    <div id="np-artist" class="np-artist"></div>
+                </div>
+            </div>
 
+            <audio id="audio-stream" src="https://stream.zeno.fm/xuin6ocdc2juv" crossorigin="anonymous"></audio>
+
+            <div id="controls">
+                <button id="play-pause-btn" class="control-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <div class="volume-container">
+                    <i class="fas fa-volume-down"></i>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                    <i class="fas fa-volume-up"></i>
+                </div>
             </div>
         </div>
 
@@ -796,8 +544,10 @@
         </footer>
     </div>
 
+    <!-- Modals -->
     <div id="modal-overlay"></div>
 
+    <!-- About Modal -->
     <div id="about-modal" class="modal">
         <div class="modal-header">
             <h2>About Radio Vivid Voice</h2>
@@ -813,6 +563,7 @@
         </div>
     </div>
 
+    <!-- Request Modal -->
     <div id="request-modal" class="modal">
         <div class="modal-header">
             <h2>Request a Song</h2>
@@ -830,6 +581,7 @@
         </div>
     </div>
 
+    <!-- Programmes Modal -->
     <div id="programmes-modal" class="modal">
         <div class="modal-header">
             <h2>Our Programmes</h2>
@@ -847,15 +599,16 @@
         </div>
     </div>
 
+    <!-- Contact Modal -->
     <div id="contact-modal" class="modal">
         <div class="modal-header">
             <h2>Contact Us</h2>
             <button class="close-modal-btn">×</button>
         </div>
         <div class="modal-body">
-            <p style="margin-bottom:10px; font-size:0.9em; color:rgba(255,255,255,0.65);">For any inquiries, please reach out to us at:</p>
+            <p>For any inquiries, please reach out to us at:</p>
             <a href="mailto:radiovividvoice@gmail.com">radiovividvoice@gmail.com</a>
-            <div class="social-links">
+            <div class="social-links" style="margin-top:15px;">
                 <a href="https://facebook.com/radiovividvoice" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://instagram.com/radio_vivid_voice" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
@@ -865,59 +618,79 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // ══════════════════════════════════════
-        //  ১. অডিও প্লেয়ার ও বেসিক কন্ট্রোল
-        // ══════════════════════════════════════
+        // ══════════════════════════════════════════════
+        //  ১. অডিও প্লেয়ার ও ভিজুয়ালাইজার
+        // ══════════════════════════════════════════════
         const audioStream  = document.getElementById('audio-stream');
         const playPauseBtn = document.getElementById('play-pause-btn');
         const volumeSlider = document.getElementById('volume-slider');
-        const logoWrapper  = document.getElementById('logo-wrapper');
-        const playWrapper  = document.querySelector('.play-btn-wrapper');
+        const canvas       = document.getElementById('visualizer');
+        const canvasCtx    = canvas.getContext('2d');
 
-        let isPlaying = false;
+        let audioContext, analyser, source, isPlaying = false;
 
-        function updateVolumeFill() {
-            const pct = volumeSlider.value * 100;
-            volumeSlider.style.setProperty('--vol', pct + '%');
-        }
-        updateVolumeFill();
+        function setupVisualizer() {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            analyser     = audioContext.createAnalyser();
+            source       = audioContext.createMediaElementSource(audioStream);
+            source.connect(analyser);
+            analyser.connect(audioContext.destination);
+            analyser.fftSize = 256;
 
-        function spawnRipple() {
-            const r = document.createElement('span');
-            r.className = 'ripple';
-            playWrapper.appendChild(r);
-            r.addEventListener('animationend', () => r.remove());
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray    = new Uint8Array(bufferLength);
+
+            canvas.width  = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            function draw() {
+                requestAnimationFrame(draw);
+                analyser.getByteFrequencyData(dataArray);
+                canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const barWidth = (canvas.width / bufferLength) * 2.5;
+                let x = 0;
+                for (let i = 0; i < bufferLength; i++) {
+                    const barHeight = dataArray[i] * 1.5;
+                    const gradient  = canvasCtx.createLinearGradient(0, canvas.height, 0, canvas.height - barHeight);
+                    gradient.addColorStop(0, 'rgba(106, 13, 173, 0.5)');
+                    gradient.addColorStop(1, 'rgba(0, 242, 255, 0.5)');
+                    canvasCtx.fillStyle = gradient;
+                    canvasCtx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight);
+                    x += barWidth + 1;
+                }
+            }
+            draw();
         }
 
         playPauseBtn.addEventListener('click', () => {
-            spawnRipple();
+            if (!audioContext) setupVisualizer();
             if (isPlaying) {
                 audioStream.pause();
                 playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
-                playPauseBtn.classList.remove('playing');
-                logoWrapper.classList.remove('playing');
             } else {
-                audioStream.play().catch(e => console.error("Playback failed:", e));
+                audioStream.play();
                 playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-                playPauseBtn.classList.add('playing');
-                logoWrapper.classList.add('playing');
             }
             isPlaying = !isPlaying;
         });
 
-        volumeSlider.addEventListener('input', e => {
-            audioStream.volume = e.target.value;
-            updateVolumeFill();
-        });
+        volumeSlider.addEventListener('input', e => { audioStream.volume = e.target.value; });
 
-        // ══════════════════════════════════════
-        //  ২. Now Playing — Zeno.fm SSE
-        // ══════════════════════════════════════
+
+        // ══════════════════════════════════════════════
+        //  ২. Now Playing — Zeno.fm SSE Metadata
+        // ══════════════════════════════════════════════
         const npTitleEl  = document.getElementById('np-title');
         const npArtistEl = document.getElementById('np-artist');
 
+        /**
+         * টেক্সট wrapper-এর চেয়ে বড় হলে marquee চালু করা।
+         * CSS variable --scroll-dist দিয়ে স্ক্রোলের দূরত্ব সেট হয়।
+         */
         function applyMarqueeIfNeeded(el) {
             el.classList.remove('scrolling');
+            // reflow trigger করে সঠিক scrollWidth পাওয়া
             void el.offsetWidth;
             const overflow = el.scrollWidth - el.parentElement.clientWidth;
             if (overflow > 5) {
@@ -926,8 +699,13 @@
             }
         }
 
+        /**
+         * Now Playing কার্ড আপডেট — fade-in অ্যানিমেশন সহ।
+         * streamTitle ফরম্যাট: "Artist - Song Title"
+         */
         function updateNowPlaying(streamTitle) {
-            let artist = '', title = streamTitle || '';
+            let artist = '';
+            let title  = streamTitle || '';
 
             if (title.includes(' - ')) {
                 const idx = title.indexOf(' - ');
@@ -935,65 +713,87 @@
                 title  = title.substring(idx + 3).trim();
             }
 
+            // Fade out
             const card = document.getElementById('now-playing-card');
             card.style.opacity = '0';
 
             setTimeout(() => {
+                // টেক্সট সেট করা
                 npTitleEl.textContent  = title  || 'Radio Vivid Voice';
                 npArtistEl.textContent = artist || '';
 
+                // অ্যানিমেশন রিসেট করে আবার চালু
                 npTitleEl.classList.remove('np-animate', 'scrolling');
                 npArtistEl.classList.remove('np-animate', 'scrolling');
-                void npTitleEl.offsetWidth;
+                void npTitleEl.offsetWidth; // reflow
+
                 npTitleEl.classList.add('np-animate');
                 npArtistEl.classList.add('np-animate');
+
                 card.style.opacity = '1';
 
+                // marquee দরকার কিনা চেক — DOM paint শেষ হওয়ার পর
                 requestAnimationFrame(() => {
                     applyMarqueeIfNeeded(npTitleEl);
                     applyMarqueeIfNeeded(npArtistEl);
                 });
+
             }, 350);
         }
 
+        /**
+         * Zeno.fm-এর Server-Sent Events (SSE) endpoint থেকে
+         * real-time metadata নেওয়া। Connection ড্রপ হলে
+         * ১০ সেকেন্ড পর আবার try করে।
+         */
         function connectMetadataSSE() {
+            const sseUrl = 'https://api.zeno.fm/mounts/metadata/subscribe/xuin6ocdc2juv';
             let sse;
+
             try {
-                sse = new EventSource('https://api.zeno.fm/mounts/metadata/subscribe/xuin6ocdc2juv');
+                sse = new EventSource(sseUrl);
             } catch (e) {
                 setTimeout(connectMetadataSSE, 10000);
                 return;
             }
-            sse.onmessage = e => {
+
+            sse.onmessage = function(event) {
                 try {
-                    const d = JSON.parse(e.data);
-                    if (d.streamTitle !== undefined) updateNowPlaying(d.streamTitle);
-                } catch (_) {}
+                    const data = JSON.parse(event.data);
+                    // Zeno.fm SSE payload-এ streamTitle field থাকে
+                    if (data.streamTitle !== undefined) {
+                        updateNowPlaying(data.streamTitle);
+                    }
+                } catch (err) {
+                    // JSON parse error — skip
+                }
             };
-            sse.onerror = () => {
+
+            sse.onerror = function() {
                 sse.close();
+                // ১০ সেকেন্ড পর reconnect
                 setTimeout(connectMetadataSSE, 10000);
             };
         }
 
+        // SSE connection চালু
         connectMetadataSSE();
 
-        // ══════════════════════════════════════
+
+        // ══════════════════════════════════════════════
         //  ৩. Modal System
-        // ══════════════════════════════════════
-        const overlay = document.getElementById('modal-overlay');
+        // ══════════════════════════════════════════════
+        const modalTriggers = document.querySelectorAll('[data-modal]');
+        const closeBtns     = document.querySelectorAll('.close-modal-btn');
+        const overlay       = document.getElementById('modal-overlay');
 
-        document.querySelectorAll('[data-modal]').forEach(t =>
-            t.addEventListener('click', e => {
-                e.preventDefault();
-                const m = document.getElementById(t.dataset.modal + '-modal');
-                if (m) openModal(m);
-            })
-        );
+        modalTriggers.forEach(t => t.addEventListener('click', e => {
+            e.preventDefault();
+            const modal = document.getElementById(t.dataset.modal + '-modal');
+            if (modal) openModal(modal);
+        }));
 
-        document.querySelectorAll('.close-modal-btn').forEach(b =>
-            b.addEventListener('click', () => closeModal(b.closest('.modal')))
-        );
+        closeBtns.forEach(b => b.addEventListener('click', () => closeModal(b.closest('.modal'))));
 
         overlay.addEventListener('click', () => {
             const open = document.querySelector('.modal[style*="block"]');
@@ -1004,9 +804,9 @@
             overlay.style.display = 'block';
             m.style.display       = 'block';
             setTimeout(() => {
-                overlay.style.opacity = '1';
-                m.style.opacity       = '1';
-                m.style.transform     = 'translate(-50%, -50%) scale(1)';
+                overlay.style.opacity  = '1';
+                m.style.opacity        = '1';
+                m.style.transform      = 'translate(-50%, -50%) scale(1)';
             }, 10);
         }
 
@@ -1020,9 +820,9 @@
             }, 300);
         }
 
-        // ══════════════════════════════════════
+        // ══════════════════════════════════════════════
         //  ৪. Request Form
-        // ══════════════════════════════════════
+        // ══════════════════════════════════════════════
         document.getElementById('request-form').addEventListener('submit', e => {
             e.preventDefault();
             const f    = new FormData(e.target);
