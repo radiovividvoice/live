@@ -113,12 +113,19 @@
             border-radius: 50%;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
         .nav-links a {
             color: var(--text-color);
             text-decoration: none;
             margin-left: 25px;
             font-weight: 400;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-links a:hover { color: var(--secondary-color); }
@@ -159,6 +166,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
+            border-radius: 50%;
             background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
             opacity: 0;
             transition: opacity 0.4s ease;
@@ -192,6 +200,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             margin-top: 10px;
+            isolation: isolate;
         }
 
         #visualizer {
@@ -201,6 +210,7 @@
             border-radius: 25px;
             z-index: -1;
             opacity: 0.6;
+            pointer-events: none;
         }
 
         #station-logo {
@@ -211,6 +221,17 @@
             margin-bottom: 20px;
             border: 5px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 30px rgba(0,0,0,0.6);
+            transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+            background: rgba(0, 0, 0, 0.25);
+        }
+
+        #station-logo.track-art {
+            box-shadow: 0 0 35px rgba(0, 242, 255, 0.35);
+        }
+
+        #station-logo.art-loading {
+            opacity: 0.35;
+            transform: scale(0.98);
         }
 
         #station-name { font-size: 2em; font-weight: 700; color: #fff; }
@@ -242,7 +263,6 @@
             margin-bottom: 9px;
         }
 
-        /* পালসিং লাল ডট — LIVE ইন্ডিকেটর */
         .np-live-dot {
             width: 7px;
             height: 7px;
@@ -258,7 +278,7 @@
         }
 
         .np-label-text {
-            font-size: 0.6em;
+            font-size: 0.7em;
             font-weight: 700;
             letter-spacing: 2.5px;
             color: var(--secondary-color);
@@ -266,14 +286,12 @@
             opacity: 0.9;
         }
 
-        /* স্ক্রোলিং টেক্সট wrapper */
         .np-scroll-wrapper {
             overflow: hidden;
             width: 100%;
             position: relative;
         }
 
-        /* টেক্সটের fade-out মাস্ক ডানদিকে */
         .np-scroll-wrapper::after {
             content: '';
             position: absolute;
@@ -302,12 +320,11 @@
             margin-top: 2px;
         }
 
-        /* মার্কি অ্যানিমেশন — JS দিয়ে .scrolling ক্লাস যোগ হয় */
         @keyframes marqueeScroll {
             0%   { transform: translateX(0); }
-            15%  { transform: translateX(0); }           /* শুরুতে ১.৫s স্থির */
+            15%  { transform: translateX(0); }
             85%  { transform: translateX(var(--scroll-dist)); }
-            100% { transform: translateX(var(--scroll-dist)); } /* শেষেও স্থির */
+            100% { transform: translateX(var(--scroll-dist)); }
         }
 
         .np-title.scrolling,
@@ -315,13 +332,13 @@
             animation: marqueeScroll 7s ease-in-out infinite alternate;
         }
 
-        /* Song change fade animation */
+        /* Fade-in applied on WRAPPER, not on text — no conflict with marquee */
         @keyframes npFadeIn {
             from { opacity: 0; transform: translateY(5px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        .np-animate {
+        .np-scroll-wrapper.np-animate {
             animation: npFadeIn 0.45s ease forwards;
         }
 
@@ -349,6 +366,11 @@
             transform: scale(1.1);
         }
 
+        .control-btn:focus-visible {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 3px;
+        }
+
         .volume-container {
             display: flex;
             align-items: center;
@@ -359,11 +381,13 @@
 
         #volume-slider {
             -webkit-appearance: none;
+            appearance: none;
             width: 100%;
             height: 8px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 8px;
             outline: none;
+            cursor: pointer;
         }
 
         #volume-slider::-webkit-slider-thumb {
@@ -373,6 +397,20 @@
             background: var(--secondary-color);
             border-radius: 50%;
             cursor: pointer;
+        }
+
+        #volume-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        #volume-slider:focus-visible {
+            outline: 3px solid var(--secondary-color);
+            outline-offset: 3px;
         }
 
         footer {
@@ -406,6 +444,8 @@
             z-index: 1002;
             width: 90%;
             max-width: 600px;
+            max-height: 85vh;
+            overflow-y: auto;
             display: none;
             opacity: 0;
             transition: opacity 0.3s ease, transform 0.3s ease;
@@ -417,9 +457,13 @@
             align-items: center;
             padding: 20px 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            background: var(--background-light);
+            z-index: 1;
         }
 
-        .modal-header h2 { color: var(--secondary-color); }
+        .modal-header h2 { color: var(--secondary-color); font-size: 1.4em; }
 
         .close-modal-btn {
             background: none;
@@ -427,6 +471,8 @@
             color: #fff;
             font-size: 2em;
             cursor: pointer;
+            line-height: 1;
+            padding: 0 6px;
         }
 
         .modal-body { padding: 30px; }
@@ -440,6 +486,13 @@
             background: rgba(0, 0, 0, 0.3);
             color: #fff;
             font-family: var(--font-family);
+            font-size: 1em;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: 2px solid var(--secondary-color);
+            outline-offset: 0;
         }
 
         .btn-submit {
@@ -450,6 +503,9 @@
             border-radius: 10px;
             cursor: pointer;
             transition: background 0.3s ease;
+            font-family: var(--font-family);
+            font-size: 1em;
+            font-weight: 600;
         }
 
         .btn-submit:hover { background: #8a2be2; }
@@ -470,6 +526,42 @@
         }
 
         .social-links a:hover { color: var(--secondary-color); }
+
+        /* ── Responsive (desktop look unchanged) ── */
+        @media (max-width: 720px) {
+            .navbar { padding: 12px 16px; top: 12px; }
+            .navbar-brand { font-size: 1.15em; gap: 10px; }
+            .navbar-brand img { width: 34px; height: 34px; }
+            .nav-links { gap: 4px; }
+            .nav-links a { margin-left: 12px; font-size: 0.85em; }
+            .social-icons-bar { margin-top: 130px; gap: 24px; }
+            .social-icons-bar a,
+            .social-icons-bar button { width: 58px; height: 58px; font-size: 1.9em; }
+            #radio-player { padding: 26px 20px; border-radius: 20px; }
+            #station-logo { width: 150px; height: 150px; }
+            #station-name { font-size: 1.6em; }
+            #station-slogan { font-size: 1em; }
+            .modal-header { padding: 16px 20px; }
+            .modal-body { padding: 20px; }
+        }
+
+        @media (max-width: 400px) {
+            .nav-links a { margin-left: 8px; font-size: 0.78em; }
+            .navbar-brand span { display: none; }
+            .social-icons-bar { gap: 16px; margin-top: 115px; }
+            .social-icons-bar a,
+            .social-icons-bar button { width: 52px; height: 52px; font-size: 1.7em; }
+            #radio-player { padding: 20px 14px; }
+            #station-logo { width: 130px; height: 130px; }
+            #station-name { font-size: 1.35em; }
+            #station-slogan { font-size: 0.92em; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .np-live-dot { animation: none; }
+            .np-title.scrolling,
+            .np-artist.scrolling { animation: none; }
+        }
     </style>
 </head>
 <body>
@@ -491,56 +583,60 @@
 
         <!-- Social Icons Bar -->
         <div class="social-icons-bar">
-            <a href="https://facebook.com/radiovividvoice" target="_blank" aria-label="Facebook">
+            <a href="https://facebook.com/radiovividvoice" target="_blank" rel="noopener" aria-label="Facebook">
                 <i class="fab fa-facebook-f"></i>
             </a>
-            <button data-modal="request" aria-label="Request Song">
+            <button data-modal="request" aria-label="Request a song">
                 <i class="fas fa-envelope"></i>
             </button>
-            <a href="https://instagram.com/radio_vivid_voice" target="_blank" aria-label="Instagram">
+            <a href="https://instagram.com/radio_vivid_voice" target="_blank" rel="noopener" aria-label="Instagram">
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
 
         <!-- Radio Player -->
         <div id="radio-player">
-            <canvas id="visualizer"></canvas>
+            <canvas id="visualizer" aria-hidden="true"></canvas>
             <div class="station-info">
-                <img id="station-logo" src="https://i.imgur.com/dBeUl5M.png" alt="Station Logo">
+                <img id="station-logo"
+                     src="https://i.imgur.com/dBeUl5M.png"
+                     data-station-logo="https://i.imgur.com/dBeUl5M.png"
+                     alt="Radio Vivid Voice">
                 <h1 id="station-name">Radio Vivid Voice</h1>
-                <p id="station-slogan">"জোরসে আওয়াজ তোলো"</p>
+                <p id="station-slogan" lang="bn">"জোরসে আওয়াজ তোলো"</p>
             </div>
 
             <!-- ── Now Playing Card ── -->
             <div id="now-playing-card">
                 <div class="np-header">
-                    <span class="np-live-dot"></span>
+                    <span class="np-live-dot" aria-hidden="true"></span>
                     <span class="np-label-text">Now Playing</span>
                 </div>
-                <div class="np-scroll-wrapper">
+                <div class="np-scroll-wrapper" id="np-title-wrap">
                     <div id="np-title" class="np-title">Connecting...</div>
                 </div>
-                <div class="np-scroll-wrapper" style="margin-top:3px;">
+                <div class="np-scroll-wrapper" id="np-artist-wrap" style="margin-top:3px;">
                     <div id="np-artist" class="np-artist"></div>
                 </div>
             </div>
 
-            <audio id="audio-stream" src="https://stream.zeno.fm/xuin6ocdc2juv" crossorigin="anonymous"></audio>
+            <audio id="audio-stream" preload="none" crossorigin="anonymous"></audio>
 
             <div id="controls">
-                <button id="play-pause-btn" class="control-btn">
-                    <i class="fas fa-play"></i>
+                <button id="play-pause-btn" class="control-btn" aria-label="Play live stream" aria-pressed="false">
+                    <i class="fas fa-play" aria-hidden="true"></i>
                 </button>
                 <div class="volume-container">
-                    <i class="fas fa-volume-down"></i>
-                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
-                    <i class="fas fa-volume-up"></i>
+                    <i class="fas fa-volume-down" aria-hidden="true"></i>
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7"
+                           aria-label="Volume">
+                    <i class="fas fa-volume-up" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p>© <script>document.write(new Date().getFullYear())</script> Radio Vivid Voice. All Rights Reserved.</p>
+            <p>© <span id="footer-year"></span> Radio Vivid Voice. All Rights Reserved.</p>
         </footer>
     </div>
 
@@ -548,10 +644,10 @@
     <div id="modal-overlay"></div>
 
     <!-- About Modal -->
-    <div id="about-modal" class="modal">
+    <div id="about-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="about-title">
         <div class="modal-header">
-            <h2>About Radio Vivid Voice</h2>
-            <button class="close-modal-btn">×</button>
+            <h2 id="about-title">About Radio Vivid Voice</h2>
+            <button class="close-modal-btn" aria-label="Close">×</button>
         </div>
         <div class="modal-body">
             <div class="programme-card">
@@ -564,10 +660,10 @@
     </div>
 
     <!-- Request Modal -->
-    <div id="request-modal" class="modal">
+    <div id="request-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="request-title">
         <div class="modal-header">
-            <h2>Request a Song</h2>
-            <button class="close-modal-btn">×</button>
+            <h2 id="request-title">Request a Song</h2>
+            <button class="close-modal-btn" aria-label="Close">×</button>
         </div>
         <div class="modal-body">
             <form id="request-form">
@@ -582,10 +678,10 @@
     </div>
 
     <!-- Programmes Modal -->
-    <div id="programmes-modal" class="modal">
+    <div id="programmes-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="programmes-title">
         <div class="modal-header">
-            <h2>Our Programmes</h2>
-            <button class="close-modal-btn">×</button>
+            <h2 id="programmes-title">Our Programmes</h2>
+            <button class="close-modal-btn" aria-label="Close">×</button>
         </div>
         <div class="modal-body">
             <div class="programme-card">
@@ -600,17 +696,17 @@
     </div>
 
     <!-- Contact Modal -->
-    <div id="contact-modal" class="modal">
+    <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
         <div class="modal-header">
-            <h2>Contact Us</h2>
-            <button class="close-modal-btn">×</button>
+            <h2 id="contact-title">Contact Us</h2>
+            <button class="close-modal-btn" aria-label="Close">×</button>
         </div>
         <div class="modal-body">
             <p>For any inquiries, please reach out to us at:</p>
             <a href="mailto:radiovividvoice@gmail.com">radiovividvoice@gmail.com</a>
             <div class="social-links" style="margin-top:15px;">
-                <a href="https://facebook.com/radiovividvoice" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com/radio_vivid_voice" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com/radiovividvoice" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/radio_vivid_voice" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
@@ -619,7 +715,12 @@
     document.addEventListener('DOMContentLoaded', () => {
 
     // ══════════════════════════════════════════════
-    //  ১. অডিও প্লেয়ার ও অপটিমাইজড ভিজুয়ালাইজার
+    //  Footer year (no document.write)
+    // ══════════════════════════════════════════════
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ══════════════════════════════════════════════
+    //  ১. অডিও প্লেয়ার ও ভিজুয়ালাইজার
     // ══════════════════════════════════════════════
     const audioStream  = document.getElementById('audio-stream');
     const playPauseBtn = document.getElementById('play-pause-btn');
@@ -629,15 +730,29 @@
 
     const STREAM_URL = "https://stream.zeno.fm/xuin6ocdc2juv";
 
+    // ফিক্স: স্লাইডারের প্রকৃত মান অডিও এলিমেন্টে বসানো
+    audioStream.volume = parseFloat(volumeSlider.value);
+
     let audioContext, analyser, source, isPlaying = false;
-    let visualizerGradient; // গ্রাডিয়েন্ট লুপের বাইরে রাখার জন্য
+    let visualizerGradient;
+    let rafId = null;
+
+    const stationLogoEl = document.getElementById('station-logo');
+    const STATION_LOGO_URL = stationLogoEl.dataset.stationLogo || stationLogoEl.src;
+
+    let currentTrack = { artist: '', title: '', artworkUrl: '' };
+    const artworkCache = new Map();
 
     function resizeCanvasAndGradient() {
-        canvas.width  = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
-        
-        // ফিক্স ১: গ্রাডিয়েন্ট লুপের বাইরে একবারই তৈরি হবে
-        visualizerGradient = canvasCtx.createLinearGradient(0, canvas.height, 0, 0);
+        // ডিভাইস পিক্সেল রেশিও ব্যবহার — রেটিনায় ঝাপসা হবে না
+        const dpr = window.devicePixelRatio || 1;
+        const cssW = canvas.offsetWidth;
+        const cssH = canvas.offsetHeight;
+        canvas.width  = Math.round(cssW * dpr);
+        canvas.height = Math.round(cssH * dpr);
+        canvasCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        visualizerGradient = canvasCtx.createLinearGradient(0, cssH, 0, 0);
         visualizerGradient.addColorStop(0, 'rgba(106, 13, 173, 0.6)');
         visualizerGradient.addColorStop(1, 'rgba(0, 242, 255, 0.6)');
     }
@@ -645,68 +760,130 @@
     window.addEventListener('resize', resizeCanvasAndGradient);
 
     function setupVisualizer() {
-        // ফিক্স ২: latencyHint 'playback' দেওয়া হয়েছে বড় অডিও বাফারের জন্য
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
         audioContext = new AudioContextClass({ latencyHint: 'playback' });
 
         analyser = audioContext.createAnalyser();
         source   = audioContext.createMediaElementSource(audioStream);
-        
         source.connect(analyser);
         analyser.connect(audioContext.destination);
         analyser.fftSize = 256;
 
         resizeCanvasAndGradient();
+    }
+
+    // ফিক্স: বারগুলো আর স্ক্রিনের বাইরে যায় না (ডিজাইন একই — গ্রাডিয়েন্ট, নিচ থেকে ওঠা বার)
+    function drawVisualizerFrame() {
+        if (!isPlaying || !analyser) { rafId = null; return; }
+        rafId = requestAnimationFrame(drawVisualizerFrame);
 
         const bufferLength = analyser.frequencyBinCount;
         const dataArray    = new Uint8Array(bufferLength);
+        analyser.getByteFrequencyData(dataArray);
 
-        function draw() {
-            requestAnimationFrame(draw);
-            analyser.getByteFrequencyData(dataArray);
-            canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+        const cssW = canvas.offsetWidth;
+        const cssH = canvas.offsetHeight;
+        canvasCtx.clearRect(0, 0, cssW, cssH);
 
-            const barWidth = (canvas.width / bufferLength) * 2.5;
-            let x = 0;
+        // ৬৪টি বিন ব্যবহার — চাঙ্কি বার লুক ঠিক রেখে ফুল-ক্যানভাস ফিট
+        const BAR_COUNT = 64;
+        const barStep   = cssW / BAR_COUNT;
+        const barWidth  = Math.max(1, barStep - 1);
 
-            canvasCtx.fillStyle = visualizerGradient; // প্রি-বিল্ড গ্রাডিয়েন্ট ব্যবহার
+        canvasCtx.fillStyle = visualizerGradient;
 
-            for (let i = 0; i < bufferLength; i++) {
-                const barHeight = dataArray[i] * 1.5;
-                canvasCtx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight);
-                x += barWidth + 1;
-            }
+        for (let i = 0; i < BAR_COUNT; i++) {
+            const barHeight = dataArray[i] * 1.5;
+            canvasCtx.fillRect(i * barStep, cssH - barHeight / 2, barWidth, barHeight);
         }
-        draw();
     }
+
+    function startVisualizer() {
+        if (rafId === null && analyser) {
+            rafId = requestAnimationFrame(drawVisualizerFrame);
+        }
+    }
+
+    function stopVisualizer() {
+        if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+        canvasCtx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+    }
+
+    // ── Stream error handling (auto retry) ──
+    let retryTimer = null;
+    let intentionalStop = false;
+
+    function scheduleStreamRetry() {
+        if (retryTimer || !isPlaying || intentionalStop) return;
+        console.warn('Stream interrupted — retry in 3s');
+        retryTimer = setTimeout(() => {
+            retryTimer = null;
+            if (!isPlaying || intentionalStop) return;
+            try {
+                audioStream.src = STREAM_URL + '?t=' + Date.now();
+                audioStream.load();
+                audioStream.play().catch(err => console.warn('Retry failed:', err));
+            } catch (err) {
+                console.warn('Retry error:', err);
+            }
+        }, 3000);
+    }
+
+    audioStream.addEventListener('error', scheduleStreamRetry);
+    audioStream.addEventListener('stalled', scheduleStreamRetry);
 
     playPauseBtn.addEventListener('click', async () => {
         if (!audioContext) setupVisualizer();
-
         if (audioContext.state === 'suspended') {
-            await audioContext.resume();
+            try { await audioContext.resume(); } catch (e) {}
         }
 
         if (isPlaying) {
+            // Pause
+            intentionalStop = true;
             audioStream.pause();
-            // ফিক্স ৩: পজ করলে সকেট ডিসকানেক্ট করা (স্টেল বাফার গ্লিচ রোধে)
-            audioStream.src = ""; 
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            // ফিক্স: src="" নয়, removeAttribute + load
+            audioStream.removeAttribute('src');
+            audioStream.load();
+
+            playPauseBtn.innerHTML = '<i class="fas fa-play" aria-hidden="true"></i>';
+            playPauseBtn.setAttribute('aria-label', 'Play live stream');
+            playPauseBtn.setAttribute('aria-pressed', 'false');
             isPlaying = false;
+            stopVisualizer();
+            showStationLogo();
         } else {
+            // Play
+            intentionalStop = false;
+            if (retryTimer) { clearTimeout(retryTimer); retryTimer = null; }
+
             audioStream.src = STREAM_URL;
             audioStream.load();
             try {
                 await audioStream.play();
-                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+
+                playPauseBtn.innerHTML = '<i class="fas fa-pause" aria-hidden="true"></i>';
+                playPauseBtn.setAttribute('aria-label', 'Pause live stream');
+                playPauseBtn.setAttribute('aria-pressed', 'true');
                 isPlaying = true;
+                startVisualizer();
+
+                // ফিক্স: ডুপ্লিকেট ব্লক সরানো, একটি পথ
+                if (currentTrack.artworkUrl) {
+                    showTrackArtwork(currentTrack.artworkUrl);
+                } else {
+                    updateTrackArtwork();
+                }
             } catch (err) {
                 console.error("Playback failed:", err);
+                showStationLogo();
             }
         }
     });
 
-    volumeSlider.addEventListener('input', e => { audioStream.volume = e.target.value; });
+    volumeSlider.addEventListener('input', e => {
+        audioStream.volume = parseFloat(e.target.value);
+    });
 
 
     // ══════════════════════════════════════════════
@@ -714,6 +891,8 @@
     // ══════════════════════════════════════════════
     const npTitleEl  = document.getElementById('np-title');
     const npArtistEl = document.getElementById('np-artist');
+    const npTitleWrap  = document.getElementById('np-title-wrap');
+    const npArtistWrap = document.getElementById('np-artist-wrap');
 
     function applyMarqueeIfNeeded(el) {
         el.classList.remove('scrolling');
@@ -725,15 +904,151 @@
         }
     }
 
+    function normalizeForMatch(value) {
+        return (value || '')
+            .toLowerCase()
+            .normalize('NFKD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^\p{L}\p{N}\s]/gu, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    function fetchItunesArtwork(artist, title) {
+        return new Promise((resolve) => {
+            const searches = [];
+            const cleanArtist = (artist || '').trim();
+            const cleanTitle = (title || '').trim();
+
+            if (cleanArtist && cleanTitle) searches.push(`${cleanArtist} ${cleanTitle}`);
+            if (cleanTitle) searches.push(cleanTitle);
+            if (cleanArtist) searches.push(cleanArtist);
+
+            let index = 0;
+
+            function nextSearch() {
+                if (index >= searches.length) { resolve(''); return; }
+
+                const term = searches[index++];
+                const callbackName = `rvvArtwork_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+                const script = document.createElement('script');
+                const timeout = setTimeout(() => { cleanup(); nextSearch(); }, 7000);
+
+                function cleanup() {
+                    clearTimeout(timeout);
+                    try { delete window[callbackName]; } catch (e) { window[callbackName] = undefined; }
+                    script.remove();
+                }
+
+                window[callbackName] = (data) => {
+                    cleanup();
+
+                    const results = Array.isArray(data?.results) ? data.results : [];
+                    if (!results.length) { nextSearch(); return; }
+
+                    const wantedArtist = normalizeForMatch(cleanArtist);
+                    const wantedTitle = normalizeForMatch(cleanTitle);
+
+                    const ranked = results.map(result => {
+                        const resultArtist = normalizeForMatch(result.artistName);
+                        const resultTitle = normalizeForMatch(result.trackName);
+                        let score = 0;
+
+                        if (wantedArtist && resultArtist === wantedArtist) score += 100;
+                        else if (wantedArtist && (resultArtist.includes(wantedArtist) || wantedArtist.includes(resultArtist))) score += 45;
+
+                        if (wantedTitle && resultTitle === wantedTitle) score += 100;
+                        else if (wantedTitle && (resultTitle.includes(wantedTitle) || wantedTitle.includes(resultTitle))) score += 45;
+
+                        if (result.artworkUrl100) score += 5;
+                        return { result, score };
+                    }).sort((a, b) => b.score - a.score);
+
+                    const best = ranked[0];
+                    if (!best || !best.result.artworkUrl100) { nextSearch(); return; }
+
+                    const artwork = best.result.artworkUrl100
+                        .replace(/^http:/, 'https:')
+                        .replace(/100x100/g, '600x600');
+
+                    resolve(artwork);
+                };
+
+                script.src =
+                    `https://itunes.apple.com/search?term=${encodeURIComponent(term)}` +
+                    `&media=music&entity=song&limit=10&country=US&callback=${callbackName}`;
+
+                script.onerror = () => { cleanup(); nextSearch(); };
+                document.head.appendChild(script);
+            }
+
+            nextSearch();
+        });
+    }
+
+    async function getArtworkForTrack(artist, title) {
+        const cacheKey = `${normalizeForMatch(artist)}||${normalizeForMatch(title)}`;
+        if (cacheKey === '||') return '';
+        if (artworkCache.has(cacheKey)) return artworkCache.get(cacheKey);
+
+        const artworkUrl = await fetchItunesArtwork(artist, title);
+        artworkCache.set(cacheKey, artworkUrl || '');
+        return artworkUrl || '';
+    }
+
+    function showStationLogo() {
+        stationLogoEl.classList.remove('track-art', 'art-loading');
+        stationLogoEl.src = STATION_LOGO_URL;
+        stationLogoEl.alt = 'Radio Vivid Voice';
+    }
+
+    function showTrackArtwork(artworkUrl) {
+        if (!artworkUrl) { showStationLogo(); return; }
+        stationLogoEl.classList.add('art-loading');
+
+        const testImage = new Image();
+        testImage.onload = () => {
+            stationLogoEl.src = artworkUrl;
+            stationLogoEl.alt = `${currentTrack.title || 'Now Playing'} cover art`;
+            stationLogoEl.classList.add('track-art');
+            stationLogoEl.classList.remove('art-loading');
+        };
+        testImage.onerror = () => { showStationLogo(); };
+        testImage.src = artworkUrl;
+    }
+
+    async function updateTrackArtwork() {
+        const { artist, title } = currentTrack;
+        if (!artist && !title) { showStationLogo(); return; }
+
+        const artworkUrl = await getArtworkForTrack(artist, title);
+
+        // স্টেল রেসপন্স ইগনোর
+        if (artist !== currentTrack.artist || title !== currentTrack.title) return;
+
+        currentTrack.artworkUrl = artworkUrl;
+        if (isPlaying) showTrackArtwork(artworkUrl);
+    }
+
     function updateNowPlaying(streamTitle) {
         let artist = '';
         let title  = streamTitle || '';
 
-        if (title.includes(' - ')) {
-            const idx = title.indexOf(' - ');
+        const separator = title.match(/\s+(?:-|–|—)\s+/);
+        if (separator) {
+            const idx = separator.index;
             artist = title.substring(0, idx).trim();
-            title  = title.substring(idx + 3).trim();
+            title  = title.substring(idx + separator[0].length).trim();
         }
+
+        const previousTrackKey = `${currentTrack.artist}||${currentTrack.title}`;
+        const nextTrackKey = `${artist}||${title}`;
+
+        // ফিক্স: একই গান এলে DOM-এ হাত দেবেন না
+        if (previousTrackKey === nextTrackKey) return;
+
+        currentTrack = { artist, title, artworkUrl: '' };
+        updateTrackArtwork();
 
         const card = document.getElementById('now-playing-card');
         card.style.opacity = '0';
@@ -742,13 +1057,15 @@
             npTitleEl.textContent  = title  || 'Radio Vivid Voice';
             npArtistEl.textContent = artist || '';
 
-            npTitleEl.classList.remove('np-animate', 'scrolling');
-            npArtistEl.classList.remove('np-animate', 'scrolling');
-            void npTitleEl.offsetWidth; 
+            // রিসেট: মার্কি ও fade — wrapper-এ আলাদা
+            npTitleEl.classList.remove('scrolling');
+            npArtistEl.classList.remove('scrolling');
+            npTitleWrap.classList.remove('np-animate');
+            npArtistWrap.classList.remove('np-animate');
+            void npTitleWrap.offsetWidth;
 
-            npTitleEl.classList.add('np-animate');
-            npArtistEl.classList.add('np-animate');
-
+            npTitleWrap.classList.add('np-animate');
+            npArtistWrap.classList.add('np-animate');
             card.style.opacity = '1';
 
             requestAnimationFrame(() => {
@@ -761,7 +1078,6 @@
     function connectMetadataSSE() {
         const sseUrl = 'https://api.zeno.fm/mounts/metadata/subscribe/xuin6ocdc2juv';
         let sse;
-
         try {
             sse = new EventSource(sseUrl);
         } catch (e) {
@@ -772,9 +1088,7 @@
         sse.onmessage = function(event) {
             try {
                 const data = JSON.parse(event.data);
-                if (data.streamTitle !== undefined) {
-                    updateNowPlaying(data.streamTitle);
-                }
+                if (data.streamTitle !== undefined) updateNowPlaying(data.streamTitle);
             } catch (err) {}
         };
 
@@ -788,11 +1102,49 @@
 
 
     // ══════════════════════════════════════════════
-    //  ৩. Modal System
+    //  ৩. Modal System (Esc, focus, a11y)
     // ══════════════════════════════════════════════
     const modalTriggers = document.querySelectorAll('[data-modal]');
     const closeBtns     = document.querySelectorAll('.close-modal-btn');
     const overlay       = document.getElementById('modal-overlay');
+
+    let activeModal = null;
+    let lastFocused = null;
+
+    function focusableElements(root) {
+        return root.querySelectorAll(
+            'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])'
+        );
+    }
+
+    function openModal(m) {
+        lastFocused = document.activeElement;
+        activeModal = m;
+        overlay.style.display = 'block';
+        m.style.display       = 'block';
+        setTimeout(() => {
+            overlay.style.opacity  = '1';
+            m.style.opacity        = '1';
+            m.style.transform      = 'translate(-50%, -50%) scale(1)';
+        }, 10);
+
+        // ফোকাস প্রথম ইন্টার্যাক্টিভ এলিমেন্টে
+        const focusables = focusableElements(m);
+        if (focusables.length) setTimeout(() => focusables[0].focus(), 60);
+    }
+
+    function closeModal(m) {
+        if (!m) return;
+        overlay.style.opacity = '0';
+        m.style.opacity       = '0';
+        m.style.transform     = 'translate(-50%, -50%) scale(0.95)';
+        setTimeout(() => {
+            overlay.style.display = 'none';
+            m.style.display       = 'none';
+            if (activeModal === m) activeModal = null;
+            if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+        }, 300);
+    }
 
     modalTriggers.forEach(t => t.addEventListener('click', e => {
         e.preventDefault();
@@ -802,30 +1154,32 @@
 
     closeBtns.forEach(b => b.addEventListener('click', () => closeModal(b.closest('.modal'))));
 
-    overlay.addEventListener('click', () => {
-        const open = document.querySelector('.modal[style*="block"]');
-        if (open) closeModal(open);
+    overlay.addEventListener('click', () => { if (activeModal) closeModal(activeModal); });
+
+    // Esc → close, Tab → focus trap
+    document.addEventListener('keydown', (e) => {
+        if (!activeModal) return;
+
+        if (e.key === 'Escape') {
+            e.preventDefault();
+            closeModal(activeModal);
+            return;
+        }
+
+        if (e.key === 'Tab') {
+            const focusables = Array.from(focusableElements(activeModal))
+                .filter(el => el.offsetParent !== null);
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last  = focusables[focusables.length - 1];
+
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault(); last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault(); first.focus();
+            }
+        }
     });
-
-    function openModal(m) {
-        overlay.style.display = 'block';
-        m.style.display       = 'block';
-        setTimeout(() => {
-            overlay.style.opacity  = '1';
-            m.style.opacity        = '1';
-            m.style.transform      = 'translate(-50%, -50%) scale(1)';
-        }, 10);
-    }
-
-    function closeModal(m) {
-        overlay.style.opacity = '0';
-        m.style.opacity       = '0';
-        m.style.transform     = 'translate(-50%, -50%) scale(0.95)';
-        setTimeout(() => {
-            overlay.style.display = 'none';
-            m.style.display       = 'none';
-        }, 300);
-    }
 
     // ══════════════════════════════════════════════
     //  ৪. Request Form
